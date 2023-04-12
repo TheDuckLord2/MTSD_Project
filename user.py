@@ -1,5 +1,22 @@
-import sqlite3 #Importing the module
-import pandas as pd
+import sqlite3
+
+conn = sqlite3.connect('MTSD_Database.db')
+
+cursor = conn.cursor()
+
+
+
+def createAccount():
+
+
+
+
+
+
+
+
+
+
 
 cnxn = sqlite2.connect('
 

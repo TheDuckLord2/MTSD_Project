@@ -17,7 +17,7 @@ if choice == 1:
     print("Please choose an option")
     print("1. Edit account information")
     print("2. Shop")
-    print("3. View Cart Information)
+    print("3. View Cart Information")
     print("4. Log out")
     logInChoice = input("Enter your choice (1-4): ")
           

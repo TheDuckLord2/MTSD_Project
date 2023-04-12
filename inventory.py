@@ -1,7 +1,9 @@
 class inventory
-    int itemID
+    itemID
     itemName
     itemQuantity
     itemPrice
 
-    def inventory()
+    def inventory():
+    
+        

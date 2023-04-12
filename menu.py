@@ -1,23 +1,34 @@
 while True:
     print("Please choose an option:")
-    print("1. Option 1")
-    print("2. Option 2")
-    print("3. Option 3")
-    print("4. Option 4")
-    choice = input("Enter your choice (1-4): ")
+    print("1. Log In")
+    print("2. Create account")
+    print("3. Quit")
+    choice = input("Enter your choice (1-3): ")
 
     if choice.isdigit():
         choice = int(choice)
-        if choice >= 1 and choice <= 4:
+        if choice >= 1 and choice <= 3:
             break
-    print("Invalid choice. Please enter a number between 1 and 4.")
+    print("Invalid choice. Please enter a number between 1 and 3.")
 
 
 if choice == 1:
-    print("Option 1 selected.")
+    print("Log In selected.")
+    print("Please choose an option")
+    print("1. Edit account information")
+    print("2. Shop")
+    print("3. View Cart Information)
+    print("4. Log out")
+    logInChoice = input("Enter your choice (1-4): ")
+          
+    if logInChoice.isdigit():
+        logInChoice = int(logInChoice)
+        if logInChoice >= 1 and logInChoice <= 4:
+            break
+    print("Invalid choice. Please enter a number between 1 and 4.")
+          
 elif choice == 2:
-    print("Option 2 selected.")
+    print("Create account selected.")
 elif choice == 3:
-    print("Option 3 selected.")
-elif choice == 4:
-    print("Option 4 selected.")
+    print("Quit selected.")
+

@@ -1,68 +1,72 @@
 import sqlite3
 
-conn = sqlite3.connect('MTSD_Database.db')
+class User:
 
-cursor = conn.cursor()
+# on log in: use cursor.execute("SELECT from where username = and password = ")
 
+  conn = sqlite3.connect('MTSD_Database.db')
 
-
-def createAccount():
-
-
+  cursor = conn.cursor()
 
 
-
-
-
-
-
-
-
-cnxn = sqlite2.connect('
-
-conn = sqlite3.connect("MTSD_Database.db") # database object
-
-curr = conn.cursor() # cursor object
-
-curr.execute(table command)
-
-conn.commit()
-
-data = createAccount()
-addData = """INSERT INTO Users VALUES("First Name", "Last Name", "UserID", "Address", "Password","Username","Email","Phone Number","Payment Info")"""
-
-class user:
+  # CREATE ACCOUNT
+  userID = 0
+  def createAccount():
+    firstName = input("Enter your first name: ")
+    setFirstName(self, firstName)
+    lastName = input("Enter your last name: ")
+    setLastName(self, lastName)
+    email = input("Enter your email: ")
+    setEmail(self, email)
+    phoneNumber = input("Enter your phone number: ")
+    setPhoneNumber(self, phoneNumber)
+    paymentInfo = input("Enter your payment information: ")
+    setPaymentInfo(self, paymentInfo)
+    address = input("Enter your address: ")
+    setAddress(self, address)
+    username = input("Enter a username: ")
+    setUsername(self, username)
+    password = input("Enter a password: ")
+    setPassword(self,password)
+    userID = new_userID()
+    setUserID(self,userID)
   
-  def create_connection("First Name","Last Name","UserID","Address","Password","Username","Email","Phone Number","Payment Info"):
-    connection = None
-    try:
-      connection = MTSD_Database.connector.connect(
-        firstName = "First Name",
-        lastName = "Last Name",
-        userID = "UserID",
-        address = "Address",
-        password = "Password",
-        username = "Username",
-        email = "Email",
-        phoneNumber = "Phone Number",
-        paymentInfo = "Payment Info",
-      )
+    cursor.execute("INSER INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                  (firstName,lastName,email,phoneNumber,paymentInfo,address,username,password,userID))
+    conn.commit()
+    conn.close()
+    
+ # INCREMENTS EACH NEW USERID EACH TIME THE FUNCTION IS CALLED
+  def new_userID():
+   userID++
+   return userID
+
   
-  MTSD_Database = importname.connector.connect(
+  # LOG IN FUNCTION
+  def login(username, password):
+    user = input("Username: ")
+    passw = input("Password: ")
+    checkingUser = c.execute("SELECT Username FROM Users WHERE Username=?",(user,))
+    checkingPass = c.execute("SELECT Password FROM Users WHERE Password=?",(passw,))
+    if user == checkingUser and passw == checkingPass:
+      print("Login successful!")
+    else:
+      print("Wrong username or password.")
+      #maybe go back to original create account screen from there?
   
-  firstName = "First Name",
-  lastName = "Last Name",
-  userId = "UserID",
-  address = "Address",
-  password = "Password",
-  username = "Username",
-  email = "Email",
-  phoneNumber = "Phone Number",
-  paymentInfo = "Payment Info",
   
-  # )
+  def logout():
+    # do not know what will be here
   
-  def user():
+
+  
+
+
+  data = createAccount()
+  addData = """INSERT INTO Users VALUES("First Name", "Last Name", "UserID", "Address", "Password","Username","Email","Phone Number","Payment Info")"""
+
+  
+  def __user__():
     
   def user(firstName, lastName, userID, address, password, username, email, phoneNumber, paymentInfo):
   
@@ -75,6 +79,40 @@ class user:
     print "Address: " + address
     print "Payment Information: " + paymentInfo
     
-  def setPassword():
-    
+  def setFirstName(self,x):
+    self._firstName = x
+  def getFirstName(self):
+    return self._firstName
+  def setLastName(self,x):
+    self._lastName = x
+  def getLastName(self):
+    return self._lastName
+  def setEmail(self,x):
+    self._email = x
+  def getEmail(self):
+    return self._email
+  def setPhoneNumber(self,x):
+    self._phoneNumber = x
+  def getPhoneNumber(self):
+    return self._phoneNumber
+  def setAddress(self,x):
+    self._address = x
+  def getAddress(self):
+    return self._address
+  def setPaymentInfo(self,x):
+    self._paymentInfo = x
+  def getPaymentInfo(self):
+    return self._paymentInfo
+  def setUsername(self, x):
+    self._username = x
+  def getUsername(self):
+    return self._username
+  def setPassword(self,x):
+    self._password = x
+  def getPassword(self):
+    return self._password
+  def setUserID(self,x):
+    self._userID = x
+  def getUserID(self):
+    return self._userID
   

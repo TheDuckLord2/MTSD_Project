@@ -131,3 +131,26 @@ class User:
   def getUserID(self):
     return self._userID
   
+# idea for a menu class
+#while 1:
+#  print("Login System")
+#  print("Options: /n1. Create Account /n2. Login /n3. Exit")
+#  answer = int(input("Enter an option: "))
+#  if answer == 1:
+#    createAccount()
+#  elif answer == 2:
+#    login()
+#  elif answer == 3:
+#    break
+  #else:
+ #   break
+
+
+
+
+
+
+
+
+
+

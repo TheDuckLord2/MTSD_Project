@@ -1,4 +1,5 @@
 import sqlite3
+import hashlib
 
 class User:
 
@@ -8,6 +9,21 @@ class User:
 
   cursor = conn.cursor()
 
+  # Default constructor - probably won't need it
+  def __init__(self):
+    self.user = "None"
+    
+  # Overloaded constructor - probably won't need it either
+  def __init__(self,fn,ln,em,pn,pi,ad,usn,psw,usID):
+    self.firstName = fn
+    self.lastName = ln
+    self.email = em
+    self.phoneNumber = pn
+    self.paymentInfo = pi
+    self.address = ad
+    self.username = usn
+    self.password = psw
+    self.userID = usID
 
   # CREATE ACCOUNT
   userID = 0
@@ -33,6 +49,11 @@ class User:
   
     cursor.execute("INSER INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                   (firstName,lastName,email,phoneNumber,paymentInfo,address,username,password,userID))
+    
+#    enc = password.encode()
+#    hash1 = hashlip.md5(enc).hexdigest()
+#    print("Your account has been created!")
+    
     conn.commit()
     conn.close()
     
@@ -46,12 +67,17 @@ class User:
   def login(username, password):
     user = input("Username: ")
     passw = input("Password: ")
+    
+  #  auth = passw.encode()
+  #  auth_hash = hashlib.md5(auth).hexdigest()
+    
     checkingUser = c.execute("SELECT Username FROM Users WHERE Username=?",(user,))
     checkingPass = c.execute("SELECT Password FROM Users WHERE Password=?",(passw,))
     if user == checkingUser and passw == checkingPass:
       print("Login successful!")
     else:
       print("Wrong username or password.")
+      continue
       #maybe go back to original create account screen from there?
   
   
@@ -59,17 +85,6 @@ class User:
     # do not know what will be here
   
 
-  
-
-
-  data = createAccount()
-  addData = """INSERT INTO Users VALUES("First Name", "Last Name", "UserID", "Address", "Password","Username","Email","Phone Number","Payment Info")"""
-
-  
-  def __user__():
-    
-  def user(firstName, lastName, userID, address, password, username, email, phoneNumber, paymentInfo):
-  
   def viewProfile():
     print "Name: " + firstName + " " + lastName
     print "User ID: " + userID

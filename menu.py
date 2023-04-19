@@ -35,6 +35,7 @@ if choice == 1:
             print("3. Edit phone number")
             print("4. Edit card information")
             print("5. Edit address information")
+            #each option should bring the user back to Edit account information selection
             
         elif logInChoice == 2 
             print("Shop selected")

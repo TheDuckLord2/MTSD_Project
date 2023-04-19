@@ -50,7 +50,7 @@ class User:
     userID = new_userID()
     setUserID(self,userID)
   
-    cursor.execute("INSER INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    cursor.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                   (firstName,lastName,email,phoneNumber,paymentInfo,address,username,password,userID))
     
 #    enc = password.encode()

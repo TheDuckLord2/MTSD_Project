@@ -52,9 +52,12 @@ class cart:
 		cursor.execute("DELETE * FROM Cart WHERE Cart ID = ?",(whichCart))
 		# might not need the *
 				   
-	 def new_cartID():
+	def new_cartID():
    		cartID++
-   		return cartID		
+   		return cartID	
+	
+	#def addTotal():
+		
 	
 	
 	conn.commit()

@@ -1,6 +1,6 @@
 class menu
 import sqlite3
-#import user
+import user
 import cart
 import inventory
 
@@ -20,6 +20,8 @@ while True:
 
 if choice == 1:
     print("Log In selected.")
+    
+    
     print("Please choose an option")
     print("1. Edit Account Information")
     print("2. Shop")

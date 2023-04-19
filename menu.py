@@ -1,5 +1,5 @@
 class menu
-
+import sqlite3
 #import user
 import cart
 import inventory
@@ -42,7 +42,22 @@ if choice == 1:
             print("4. Edit card information")
             print("5. Edit address information")
             #each option should bring the user back to Edit account information selection
+            editChoice = input("Enter your choice (1-5): ")
+            if editChoice.isdigit():
+                editChoice = int(editChoice)
+                if editChoice >=1 and editChoice <=5:
+                    break
+            print("Invalid choice. Please enter a number between 1 and 5.")
             
+                if editChoice == 1
+                    conn = sqlite3.connect('MTSD_Database.db')
+                    c = conn.cursor()
+                    
+                    new_name = input("Enter your name: ")
+                    #do the update
+                    c.execute('''UPDATE Users SET firstName = ? WHERE id = ?''', (new_name, UserID))#NOT DONE HERE
+                    
+      
         elif logInChoice == 2 
             print("Shop selected")
             #show the inventory here

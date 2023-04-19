@@ -1,3 +1,9 @@
+class menu
+
+import user
+import cart
+import inventory
+
 while True:
     print("Please choose an option:")
     print("1. Log In")

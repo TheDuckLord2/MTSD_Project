@@ -1,6 +1,6 @@
 class menu
 
-import user
+#import user
 import cart
 import inventory
 

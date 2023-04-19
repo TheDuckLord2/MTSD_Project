@@ -1,5 +1,8 @@
 import sqlite3
 import hashlib
+import menu
+import cart
+
 
 class User:
 

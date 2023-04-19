@@ -20,7 +20,7 @@ while True:
 
 if choice == 1:
     print("Log In selected.")
-    
+    user.login()
     
     print("Please choose an option")
     print("1. Edit Account Information")

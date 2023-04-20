@@ -50,8 +50,7 @@ class User:
     userID = new_userID()
     setUserID(self,userID)
   
-    cursor.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                  (firstName,lastName,email,phoneNumber,paymentInfo,address,username,password,userID))
+    cursor.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,email,phoneNumber,paymentInfo,address,username,password,userID))
     
 #    enc = password.encode()
 #    hash1 = hashlip.md5(enc).hexdigest()
@@ -62,7 +61,7 @@ class User:
     
  # INCREMENTS EACH NEW USERID EACH TIME THE FUNCTION IS CALLED
   def new_userID():
-   userID++
+   userID += 1
    return userID
 
   
@@ -74,28 +73,28 @@ class User:
   #  auth = passw.encode()
   #  auth_hash = hashlib.md5(auth).hexdigest()
     
-    checkingUser = c.execute("SELECT Username FROM Users WHERE Username=?",(user,))
-    checkingPass = c.execute("SELECT Password FROM Users WHERE Password=?",(passw,))
+    checkingUser = c.execute("SELECT Username FROM Users WHERE Username=?",(user))
+    checkingPass = c.execute("SELECT Password FROM Users WHERE Password=?",(passw))
     if user == checkingUser and passw == checkingPass:
       print("Login successful!")
+      #flip value here to change if user is logged in?
     else:
       print("Wrong username or password.")
-      continue
       #maybe go back to original create account screen from there?
+      #or possibly just return to the original menu
   
   
   def logout():
+    print("nothing is here")
     # do not know what will be here
-  
-
   def viewProfile():
-    print "Name: " + firstName + " " + lastName
-    print "User ID: " + userID
-    print "Username: " + username
-    print "Email: " + email
-    print "Phone Number: " + phoneNumber
-    print "Address: " + address
-    print "Payment Information: " + paymentInfo
+    print("Name: " + firstName + " " + lastName)
+    print("User ID: " + userID)
+    print("Username: " + username)
+    print("Email: " + email)
+    print("Phone Number: " + phoneNumber)
+    print("Address: " + address)
+    print("Payment Information: " + paymentInfo)
     
   def setFirstName(self,x):
     self._firstName = x

@@ -19,12 +19,12 @@ class cart:
 		
 		currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
 		quantityDiff = currQuantity - howMuch
-		while howMuch > currQuantity
+		while howMuch > currQuantity:
 			howMuch = input("There are not that many items in stock. Try again. Quantity: ")
 			currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
 			quantityDiff = currQuantity - howMuch
 		cursor.execute("SELECT * FROM Inventory WHERE Item Name = ?",(whichItem))
-		for i in range(howMuch)
+		for i in range(howMuch):
 			cursor.execute("INSERT INTO Cart SELECT * FROM Inventory WHERE Item Name = ? AND INSERT INTO Cart VALUES ?", (whichItem, newCartID))
 			addTotal(whichItem)
 		#connect to database
@@ -46,16 +46,10 @@ class cart:
 		#remove all items from cart
 		cursor.execute("DELETE * FROM Cart WHERE Cart ID = ?",(whichCart))
 		# might not need the *
-				   
-	def new_cartID():
-   		cartID++
-   		return cartID	
-	
 	def addTotal(item):
 		cartTotal += cursor.execute("SELECT Item Price FROM Inventory WHERE Item Name = ?",(item))
-		
-	
-	
+	def new_cartID():
+   		cartID += 1
 	conn.commit()
 	conn.close()
 	

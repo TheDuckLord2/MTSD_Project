@@ -1,18 +1,8 @@
-#import mysql.connector
 import sqlite3
 
-#mydb = mysql.connector.connect(
-	#cartID = "Cart ID",
-	#itemID = "Item ID",
-	#itemName = "Item Name",
-	#itemQuantity = "Item Quantity",
-	#itemPrice = "Item Price"
-)
 class cart:
-	
 	conn = sqlite3.connect('MTSD_Database.db')
 	cursor = conn.cursor()
-	
 	
 	cartID = None
 	itemID = None

@@ -3,7 +3,9 @@ from user import user
 from cart import cart
 
 class menu:
-    
+    conn = sqlite3.connect('MTSD_Database.db')
+
+    c = conn.cursor()
 
     while True:
         print("Please choose an option:")

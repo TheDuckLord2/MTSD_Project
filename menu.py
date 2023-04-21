@@ -54,9 +54,7 @@ class menu:
                         break  
                 print("Invalid choice. Please enter a number between 1 and 5.")
 
-                if editChoice == 1:
-                    conn = sqlite3.connect('MTSD_Database.db')
-                    c = conn.cursor()
+                if editChoice == 1
 
                     new_name = input("Enter your name: ")
                     #do the update

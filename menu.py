@@ -93,6 +93,7 @@ class menu:
 
                 elif logInChoice == 3:
                     print("View Cart Information selected")
+                    
                     #do something to show the cart information
 
                 elif logInChoice == 4:

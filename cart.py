@@ -1,13 +1,17 @@
 import sqlite3
 
+conn = sqlite3.connect('MTSD_Database.db')
+cursor = conn.cursor() 
+# In order for mine to run I had to move this here -SB
+
 class cart:
-	conn = sqlite3.connect('MTSD_Database.db')
-	cursor = conn.cursor()
+	
 	
 	def __init__(self):
 		self.cartID = None
 		self.itemID = None
 		self.cartTotal = 0
+		
 	def addItem(amt):
 		#connect to database 
 		whichItem = input("Enter the item name: ")
@@ -36,7 +40,7 @@ class cart:
 		
 		whichCart = input("Enter your cartID to checkout: ")
 		
-		print("Order total: $" + cartTotal)
+		print("Order total: $" + cart.cartTotal)
 		#send order information to orderHistory DB
 		cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE Cart ID = ?", (whichCart))
 		

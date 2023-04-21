@@ -102,11 +102,7 @@ class menu:
             print("Quit selected.")
             #something should be done here to close the program??
             
-         if choice == 2:
-            print()
-            print("Create account selected.")
-            user.createAccount()
-            break
+        
             
     conn.commit()
     conn.close()

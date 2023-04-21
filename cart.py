@@ -4,13 +4,10 @@ class cart:
 	conn = sqlite3.connect('MTSD_Database.db')
 	cursor = conn.cursor()
 	
-	cartID = None
-	itemID = None
-	cartTotal = None
-	def __init__():
-		cartID = mydb.cartID
-		itemID = mydb.itemID
-		cartTotal = 0
+	def __init__(self):
+		self.cartID = None
+		self.itemID = None
+		self.cartTotal = 0
 	def addItem(amt):
 		#connect to database 
 		whichItem = input("Enter the item name: ")
@@ -48,8 +45,7 @@ class cart:
 		# might not need the *
 	def addTotal(item):
 		cartTotal += cursor.execute("SELECT Item Price FROM Inventory WHERE Item Name = ?",(item))
-	def new_cartID():
-   		cartID += 1
+	def new_cartID():cartID += 1
 	conn.commit()
 	conn.close()
 	

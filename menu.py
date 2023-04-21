@@ -53,14 +53,34 @@ class menu:
                     if editChoice >=1 and editChoice <=5:
                         break  
                 print("Invalid choice. Please enter a number between 1 and 5.")
-
+                    
+                username = input("Enter your username")
+                
                 if editChoice == 1
-
-                    new_name = input("Enter your name: ")
+                    new_name = input("Enter your updated first name: ")
                     #do the update
-                    c.execute('''UPDATE Users SET firstName = ? WHERE id = ?''', (new_name, UserID))#NOT DONE HERE
-
-
+                    c.execute('''UPDATE Users SET firstName = ? WHERE Username = ?''', (new_name, username))
+                
+                elif editChoice == 2
+                    new_name = input("Enter your updated last name: ")
+                    #do the update
+                    c.execute('''UPDATE Users SET lastName = ? WHERE Username = ?''', (new_name, username))
+                
+                elif editChoice == 3
+                    new_phone = input("Enter your updated phone number: ")
+                    #do the update
+                    c.execute('''UPDATE Users SET Phone Number = ? WHERE Username = ?''', (new_name, username))    
+                
+                elif editChoice == 4
+                    new_phone = input("Enter your updated card information: ")
+                    #do the update
+                    c.execute('''UPDATE Users SET Payment Info = ? WHERE Username = ?''', (new_name, username)) 
+                
+                elif editChoice == 5
+                    new_phone = input("Enter your updated Address: ")
+                    #do the update
+                    c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
+                    
                 elif logInChoice == 2: 
                     print("Shop selected")
                     #show the inventory here

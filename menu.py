@@ -3,7 +3,9 @@ from user import user
 from cart import cart
 
 class menu:
-    
+    conn = sqlite3.connect('MTSD_Database.db')
+
+    c = conn.cursor()
 
     while True:
         print("Please choose an option:")
@@ -81,3 +83,12 @@ class menu:
         elif choice == 3:
             print("Quit selected.")
             #something should be done here to close the program??
+            
+         if choice == 2:
+            print()
+            print("Create account selected.")
+            user.createAccount()
+            break
+            
+    conn.commit()
+    conn.close()

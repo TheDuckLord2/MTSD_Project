@@ -74,12 +74,8 @@ while True:
                 #do something that logs the user out, this should bring user back to the first set of options
     elif choice == 2:
         print("Create account selected.")
-        firstName = input("Enter your first name: ")
-        lastName = input("Enter your last name: ")
-        phoneNum = input("Enter your phone number: ")
-        cardInfo = input("Enter your card information: ")
-        addy = input("Enter your address: ")
-        
+        user.createAccount();
+        print("Account created.")
     elif choice == 3:
         print("Quit selected.")
         #something should be done here to close the program??

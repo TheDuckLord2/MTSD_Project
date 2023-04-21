@@ -73,12 +73,6 @@ class user:
   
         c.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                   (firstName,lastName,email,phoneNumber,paymentInfo,address,username,password))
-    
-    
-    conn.commit()
-    conn.close()
-
-  
   # LOG IN FUNCTION
     def login():
         user = input("Username: ")

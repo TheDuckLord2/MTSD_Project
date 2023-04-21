@@ -107,8 +107,3 @@ class menu:
         elif choice == 3:
             print("Quit selected.")
             #something should be done here to close the program??
-            
-        
-            
-    conn.commit()
-    conn.close()

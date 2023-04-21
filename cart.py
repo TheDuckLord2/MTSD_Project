@@ -1,18 +1,18 @@
 import sqlite3
-
+conn = sqlite3.connect('MTSD_Database.db')
+cursor = conn.cursor()
 class cart:
-	conn = sqlite3.connect('MTSD_Database.db')
-	cursor = conn.cursor()
+	
 	
 	def __init__(self):
 		self.cartID = None
 		self.itemID = None
 		self.cartTotal = 0
-	def addItem(amt):
+	def addItem(self,amt):
 		#connect to database 
 		whichItem = input("Enter the item name: ")
 		howMuch = amt;
-		newCartID = new_cartID()
+		newCartID = cart.new_cartID()
 		
 		currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
 		quantityDiff = currQuantity - howMuch
@@ -23,20 +23,15 @@ class cart:
 		cursor.execute("SELECT * FROM Inventory WHERE Item Name = ?",(whichItem))
 		for i in range(howMuch):
 			cursor.execute("INSERT INTO Cart SELECT * FROM Inventory WHERE Item Name = ? AND INSERT INTO Cart VALUES ?", (whichItem, newCartID))
-			addTotal(whichItem)
+			cart.addTotal(whichItem)
 		#connect to database
-		if quantityDiff > 0:
-			cursor.excecute("UPDATE Inventory SET Item Quantity ? WHERE Item Name = ?",(quantityDiff,whichItem))
-		#remove selected item from cart table based on specific amount
-		elif quantityDiff == 0:
-			cursor.execute("DELETE * FROM Inventory WHERE Item Name = ?"(whichItem))
-		#or if the item doesn't get deleted:remove the if and elif, just leaving the first SQL statement
+		cursor.excecute("UPDATE Inventory SET Item Quantity ? WHERE Item Name = ?",(quantityDiff,whichItem))
 	def checkout():
 		#display total -> function?
 		
 		whichCart = input("Enter your cartID to checkout: ")
 		
-		print("Order total: $" + cartTotal)
+		print("Order total: $" + cart.cartTotal)
 		#send order information to orderHistory DB
 		cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE Cart ID = ?", (whichCart))
 		

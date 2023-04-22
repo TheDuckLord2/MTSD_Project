@@ -56,27 +56,27 @@ class menu:
                     
                 username = input("Enter your username")
                 
-                if editChoice == 1
+                if editChoice == 1:
                     new_name = input("Enter your updated first name: ")
                     #do the update
                     c.execute('''UPDATE Users SET firstName = ? WHERE Username = ?''', (new_name, username))
                 
-                elif editChoice == 2
+                elif editChoice == 2:
                     new_name = input("Enter your updated last name: ")
                     #do the update
                     c.execute('''UPDATE Users SET lastName = ? WHERE Username = ?''', (new_name, username))
                 
-                elif editChoice == 3
+                elif editChoice == 3:
                     new_phone = input("Enter your updated phone number: ")
                     #do the update
                     c.execute('''UPDATE Users SET Phone Number = ? WHERE Username = ?''', (new_name, username))    
                 
-                elif editChoice == 4
+                elif editChoice == 4:
                     new_phone = input("Enter your updated card information: ")
                     #do the update
                     c.execute('''UPDATE Users SET Payment Info = ? WHERE Username = ?''', (new_name, username)) 
                 
-                elif editChoice == 5
+                elif editChoice == 5:
                     new_phone = input("Enter your updated Address: ")
                     #do the update
                     c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     

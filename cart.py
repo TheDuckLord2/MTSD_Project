@@ -16,7 +16,7 @@ class cart:
 		#connect to database 
 		whichItem = input("Enter the item name: ")
 		howMuch = amt;
-		newCartID = new_cartID()
+		newCartID = cart.new_cartID()
 		
 		currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
 		quantityDiff = currQuantity - howMuch
@@ -27,7 +27,7 @@ class cart:
 		cursor.execute("SELECT * FROM Inventory WHERE Item Name = ?",(whichItem))
 		for i in range(howMuch):
 			cursor.execute("INSERT INTO Cart SELECT * FROM Inventory WHERE Item Name = ? AND INSERT INTO Cart VALUES ?", (whichItem, newCartID))
-			addTotal(whichItem)
+			cart.addTotal(whichItem)
 		#connect to database
 		if quantityDiff > 0:
 			cursor.excecute("UPDATE Inventory SET Item Quantity ? WHERE Item Name = ?",(quantityDiff,whichItem))

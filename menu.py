@@ -40,7 +40,7 @@ class menu:
 
             if logInChoice == 1:
                 print("Edit Account Information selected")
-                while True;
+                while True
                 print("Please choose an option")
                 print("1. Edit first name")
                 print("2. Edit last name")
@@ -108,7 +108,7 @@ class menu:
                     break
         elif choice == 2:
             print("Create account selected.")
-            user.createAccount();
+            user.createAccount()
             print("Account created.")
     
     #this may not be correct

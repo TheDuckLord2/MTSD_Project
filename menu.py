@@ -34,9 +34,9 @@ class menu:
 
             if logInChoice.isdigit():
                 logInChoice = int(logInChoice)
-                if logInChoice >= 1 and logInChoice <= 4:
+                if logInChoice < 1 or logInChoice > 4:
+                    print("Invalid choice. Please enter a number between 1 and 4.")
                     pass
-            print("Invalid choice. Please enter a number between 1 and 4.")
 
             if logInChoice == 1:
                 print("Edit Account Information selected")
@@ -101,7 +101,7 @@ class menu:
                     #do something that logs the user out, this should bring user back to the first set of options
         elif choice == 2:
             print("Create account selected.")
-            user.createAccount();
+            user.createAccount()
             print("Account created.") 
         elif choice == 3:
             print("Quit selected.")

@@ -115,7 +115,7 @@ class menu:
                     else:
                         print("Invalid choice. Please enter a number between 1 and 3.")
                         continue
-                if cartChoice == 1
+                if cartChoice == 1:
                     itemtodelete = input("Which item would you like to delete")
                     amttodelete = input ("How much of that item would you like to delete")
                     

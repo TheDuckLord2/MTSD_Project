@@ -25,28 +25,6 @@ class user:
       self.username = None
       self.password = None
       self.userID = None
-  
-
-
-  # INCREMENTS EACH NEW USERID EACH TIME THE FUNCTION IS CALLED
-  # userID = 1
-  # def new_userID():
-  #    newUserID = userID + 1
-    #   return newUserID
-
-
-
-# Overloaded constructor - probably won't need it either
-  #def __init__(self,fn,ln,em,pn,pi,ad,usn,psw,usID):
-    #  self.firstName = fn
-    #   self.lastName = ln
-    #   self.email = em
-    #   self.phoneNumber = pn
-    #   self.paymentInfo = pi
-    #   self.address = ad
-    #  self.username = usn
-      # self.password = psw
-      # self.userID = usID
 
 
 # CREATE ACCOUNT
@@ -139,19 +117,7 @@ class user:
   def getUserID(self):
       return self._userID
 
-# idea for a menu class
-#while 1:
-#  print("Login System")
-#  print("Options: /n1. Create Account /n2. Login /n3. Exit")
-#  answer = int(input("Enter an option: "))
-#  if answer == 1:
-#    createAccount()
-#  elif answer == 2:
-#    login()
-#  elif answer == 3:
-#    break
-#else:
-#   break
+
 
 
 

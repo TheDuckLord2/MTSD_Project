@@ -43,7 +43,10 @@ class cart:
 		cartTotal += cursor.execute("SELECT Item Price FROM Inventory WHERE Item Name = ?",(item))
 		
 	def displayCart():
-		print("temp")
+		cursor.execute("SELECT * FROM Inventory")
+		items = cursor.fetchall()
+		for item in items:
+			print(item[0] + " " + item[1])
 		# Needs to be done
 	
 	def new_cartID():cartID += 1

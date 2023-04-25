@@ -8,7 +8,7 @@ class menu:
     c = conn.cursor()
 
     while True:
-        print("Please choose an option:")
+        print("\n\tPlease choose an option:")
         print("1. Log In")
         print("2. Create account")
         print("3. Quit")
@@ -22,10 +22,10 @@ class menu:
                 print("Invalid choice. Please enter a number between 1 and 3.")
                 
         if choice == 1:
-            print("Log In selected.")
+            print("\n\tLog In selected.")
             user.login()
 
-            print("Please choose an option")
+            print("\n\tPlease choose an option")
             print("1. Edit Account Information")
             print("2. Shop")
             print("3. View Cart Information")
@@ -34,12 +34,13 @@ class menu:
 
             if logInChoice.isdigit():
                 logInChoice = int(logInChoice)
-                if logInChoice >= 1 and logInChoice <= 4:
+                if choice >= 1 and choice <= 3:
                     pass
-            print("Invalid choice. Please enter a number between 1 and 4.")
+                elif choice < 1 or choice > 3:
+                    print("Invalid choice. Please enter a number between 1 and 3.")
 
             if logInChoice == 1:
-                print("Edit Account Information selected")
+                print("\n\tEdit Account Information selected")
                 while True:
                     print("Please choose an option")
                     print("1. Edit first name")
@@ -90,8 +91,9 @@ class menu:
                     break
                     
             elif logInChoice == 2: 
-                print("Shop selected")
+                print("\n\tShop selected")
                 c.execute("SELECT * FROM Inventory")
+                items = print(c.fetchall())
                 choice = input("Which item would you like to purchase?")
                 quantity = input("How many ",choice,"s would you like to purchase?")
                 cart.addItem(quantity)
@@ -100,7 +102,7 @@ class menu:
                 #this should also remove one item quantity from the inventory
 
             elif logInChoice == 3:
-                print("View Cart Information selected")
+                print("\n\tView Cart Information selected")
                 cart.displayCart()
                 print("Please choose an option")
                 print("1. Delete from cart")
@@ -127,7 +129,7 @@ class menu:
                 #do something that logs the user out, this should bring user back to the first set of options
                 break
         elif choice == 2:
-            print("Create account selected.")
+            print("\n\tCreate account selected.")
             user.createAccount()
             print("Account created.")
     
@@ -135,7 +137,7 @@ class menu:
         
         
         elif choice == 3:
-            print("Quit selected.")
+            print("\nQuit selected.")
             #something should be done here to close the program??
             quit()
             

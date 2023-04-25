@@ -1,6 +1,7 @@
 import sqlite3
 from user import user
 from cart import cart
+from tabulate import tabulate
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')
@@ -92,8 +93,11 @@ class menu:
                     
             elif logInChoice == 2: 
                 print("\n\tShop selected")
+                
+               # items = print(c.fetchall())
+                headers = ["Item ID","Item Name","Item Quantity","Item Price"]
                 c.execute("SELECT * FROM Inventory")
-                items = print(c.fetchall())
+                print(tabulate(c.fetchall(),headers=headers))
                 choice = input("Which item would you like to purchase?")
                 quantity = input("How many ",choice,"s would you like to purchase?")
                 cart.addItem(quantity)

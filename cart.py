@@ -44,9 +44,7 @@ class cart:
 		
 	def displayCart():
 		cursor.execute("SELECT * FROM Inventory")
-		items = cursor.fetchall()
-		for item in items:
-			print(item[0] + " " + item[1])
+		#header = ["Item ID","Item Name","Item Quantity","Item Price"]
 		# Needs to be done
 	
 	def new_cartID():cartID += 1

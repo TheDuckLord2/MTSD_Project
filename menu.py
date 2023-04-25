@@ -112,11 +112,12 @@ class menu:
             print("Account created.")
     
     #this may not be correct
-    conn.commit()
-    conn.close()
         
         
         elif choice == 3:
             print("Quit selected.")
             #something should be done here to close the program??
             quit()
+            
+    conn.commit()
+    conn.close()

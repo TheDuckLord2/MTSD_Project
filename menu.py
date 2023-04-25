@@ -83,12 +83,17 @@ class menu:
                     
                 elif logInChoice == 2: 
                     print("Shop selected")
+                    c.execute("SELECT * FROM Inventory")
+                    choice = input("Which item would you like to purchase?")
+                    quantity = input("How many ",choice,"s would you like to purchase?")
+                    cart.addItem(quantity)
                     #show the inventory here
                     #do something to have the user be able to add to cart
                     #this should also remove one item quantity from the inventory
 
                 elif logInChoice == 3:
                     print("View Cart Information selected")
+                    
                     #do something to show the cart information
 
                 elif logInChoice == 4:

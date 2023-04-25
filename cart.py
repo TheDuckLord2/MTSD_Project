@@ -8,7 +8,8 @@ class cart:
 		self.cartID = None
 		self.itemID = None
 		self.cartTotal = 0
-	def addItem(self,amt):
+		
+	def addItem(amt):
 		#connect to database 
 		whichItem = input("Enter the item name: ")
 		howMuch = amt;
@@ -40,6 +41,10 @@ class cart:
 		# might not need the *
 	def addTotal(item):
 		cartTotal += cursor.execute("SELECT Item Price FROM Inventory WHERE Item Name = ?",(item))
+		
+	def displayCart():
+		# Needs to be done
+	
 	def new_cartID():cartID += 1
 	conn.commit()
 	conn.close()

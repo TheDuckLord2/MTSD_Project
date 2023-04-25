@@ -94,13 +94,13 @@ class user:
   
 
     def viewProfile():
-        print("Name: ", firstName," ",lastName)
-        print("User ID: ", userID)
-        print("Username: ",username)
-        print("Email: ",email)
-        print("Phone Number: ",phoneNumber)
-        print("Address: " + address)
-        print("Payment Information: ",paymentInfo)
+        print("Name: ", user.firstName," ",user.lastName)
+        print("User ID: ", user.userID)
+        print("Username: ",user.username)
+        print("Email: ",user.email)
+        print("Phone Number: ",user.phoneNumber)
+        print("Address: " + user.address)
+        print("Payment Information: ",user.paymentInfo)
     
     def setFirstName(self,x):
         self._firstName = x

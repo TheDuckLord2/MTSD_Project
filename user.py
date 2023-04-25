@@ -69,7 +69,7 @@ class user:
       # num = cursor.execute("SELECT COUNT(*) FROM Users")
     #  userID = userID + num
     #  setUserID(self,userID)
-    conn.execute("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,username,password,user.userID,address,phoneNumber,paymentInfo))
+    conn.execute("INSERT INTO Users ([First Name], [Last Name], [Username], [Password], [Address], [Phone Number], [Payment Info]) VALUES (?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,username,password,address,phoneNumber,paymentInfo))
     conn.commit()
 
 

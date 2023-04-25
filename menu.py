@@ -40,23 +40,23 @@ class menu:
 
             if logInChoice == 1:
                 print("Edit Account Information selected")
-                while True
-                print("Please choose an option")
-                print("1. Edit first name")
-                print("2. Edit last name")
-                print("3. Edit phone number")
-                print("4. Edit card information")
-                print("5. Edit address information")
-                print("6. Go Back")
-                #each option should bring the user back to Edit account information selection
-                editChoice = input("Enter your choice (1-6): ")
-                if editChoice.isdigit():
-                    editChoice = int(editChoice)
-                    if editChoice >=1 and editChoice <=6:
-                        pass
-                    else:
-                        print("Invalid choice. Please enter a number between 1 and 6.")
-                        continue
+                while True:
+                    print("Please choose an option")
+                    print("1. Edit first name")
+                    print("2. Edit last name")
+                    print("3. Edit phone number")
+                    print("4. Edit card information")
+                    print("5. Edit address information")
+                    print("6. Go Back")
+                    #each option should bring the user back to Edit account information selection
+                    editChoice = input("Enter your choice (1-6): ")
+                    if editChoice.isdigit():
+                        editChoice = int(editChoice)
+                        if editChoice >=1 and editChoice <=6:
+                            pass
+                        else:
+                            print("Invalid choice. Please enter a number between 1 and 6.")
+                            continue
                         
                 username = input("Enter your username")
                 
@@ -115,7 +115,7 @@ class menu:
                     else:
                         print("Invalid choice. Please enter a number between 1 and 3.")
                         continue
-                if cartChoice == 1
+                if cartChoice == 1:
                     itemtodelete = input("Which item would you like to delete")
                     amttodelete = input ("How much of that item would you like to delete")
                     

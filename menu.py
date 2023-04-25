@@ -40,20 +40,24 @@ class menu:
 
             if logInChoice == 1:
                 print("Edit Account Information selected")
+                while True;
                 print("Please choose an option")
                 print("1. Edit first name")
                 print("2. Edit last name")
                 print("3. Edit phone number")
                 print("4. Edit card information")
                 print("5. Edit address information")
+                print("6. Back")
                 #each option should bring the user back to Edit account information selection
-                editChoice = input("Enter your choice (1-5): ")
+                editChoice = input("Enter your choice (1-6): ")
                 if editChoice.isdigit():
                     editChoice = int(editChoice)
-                    if editChoice >=1 and editChoice <=5:
-                        break  
-                print("Invalid choice. Please enter a number between 1 and 5.")
-                    
+                    if editChoice >=1 and editChoice <=6:
+                        pass
+                    else:
+                        print("Invalid choice. Please enter a number between 1 and 6.")
+                        continue
+                        
                 username = input("Enter your username")
                 
                 if editChoice == 1:
@@ -81,6 +85,8 @@ class menu:
                     #do the update
                     c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
                     
+                elif editChoice == 6:
+                    break
                 elif logInChoice == 2: 
                     print("Shop selected")
                     c.execute("SELECT * FROM Inventory")

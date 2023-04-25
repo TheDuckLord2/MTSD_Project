@@ -47,7 +47,7 @@ class menu:
                 print("3. Edit phone number")
                 print("4. Edit card information")
                 print("5. Edit address information")
-                print("6. Back")
+                print("6. Go Back")
                 #each option should bring the user back to Edit account information selection
                 editChoice = input("Enter your choice (1-6): ")
                 if editChoice.isdigit():
@@ -86,6 +86,7 @@ class menu:
                     c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
                     print("Address Information has been updated")
                 elif editChoice == 6:
+                    print("Go Back selected")
                     break
                     
             elif logInChoice == 2: 

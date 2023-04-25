@@ -33,7 +33,7 @@ class cart:
 			cursor.excecute("UPDATE Inventory SET Item Quantity ? WHERE Item Name = ?",(quantityDiff,whichItem))
 		#remove selected item from cart table based on specific amount
 		elif quantityDiff == 0:
-			cursor.execute("DELETE * FROM Inventory WHERE Item Name = ?",(whichItem))
+			cursor.execute("DELETE * FROM Inventory WHERE Item Name = ?"(whichItem))
 		#or if the item doesn't get deleted:remove the if and elif, just leaving the first SQL statement
 	def checkout():
 		#display total -> function?
@@ -51,7 +51,7 @@ class cart:
 		cartTotal += cursor.execute("SELECT Item Price FROM Inventory WHERE Item Name = ?",(item))
 		
 	def displayCart():
-		# Needs to be done
+		print(cursor.execute("SELECT * FROM Cart"))
 	
 	def new_cartID():cartID += 1
 	conn.commit()

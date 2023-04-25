@@ -99,6 +99,7 @@ class menu:
                 elif logInChoice == 4:
                     print("Log Out Selected")
                     #do something that logs the user out, this should bring user back to the first set of options
+                    break
         elif choice == 2:
             print("Create account selected.")
             user.createAccount();

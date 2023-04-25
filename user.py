@@ -7,8 +7,9 @@ c = conn.execute("SELECT * FROM Users ")
 c = conn.cursor()
 
 
-class user:
 
+class user:
+  userID = 6
 # on log in: use cursor.execute("SELECT from where username = and password = ")
 
     
@@ -49,9 +50,8 @@ class user:
 
 
 # CREATE ACCOUNT
-  userID = 1
   def createAccount():
-    user.userID += 3
+    user.userID += 1
     firstName = input("Enter your first name: ")
       # setFirstName(self, firstName)
     lastName = input("Enter your last name: ")
@@ -77,18 +77,14 @@ class user:
   def login():
       usern = input("Username: ")
       passw = input("Password: ")
-      checkingPass = c.execute("SELECT Password FROM Users WHERE Username = ?",(usern))
-      checkingPass = c.fetchone()
-      usern = "(\'" + usern + "\'),"
-      print(checkingPass)
-      checkingUser = c.execute("SELECT Username FROM Users WHERE Password = ?",(passw))
-      checkingUser = c.fetchone()
-      print(checkingPass)
-      passw = "(\'" + passw + "\'),"
-      if usern == str(checkingUser) and passw == str(checkingPass):
+      checking = c.execute("SELECT Username, Password FROM Users WHERE Username = ?",(usern,))
+      checking = c.fetchone()
+      print(checking)
+      if usern == checking[0] and passw == checking[1]:
         print("Login successful!")
       else:
         print("Wrong username or password.")
+        exit()
         #continue
         #maybe go back to original create account screen from there?
 

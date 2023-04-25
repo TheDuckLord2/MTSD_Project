@@ -9,8 +9,6 @@ c = conn.cursor()
 
 class user:
 
-# on log in: use cursor.execute("SELECT from where username = and password = ")
-
     
 
   # Default constructor - probably won't need it
@@ -25,15 +23,6 @@ class user:
        self.password = None
        self.userID = None
     
-
-
-    # INCREMENTS EACH NEW USERID EACH TIME THE FUNCTION IS CALLED
-   # userID = 1
-   # def new_userID():
-    #    newUserID = userID + 1
-     #   return newUserID
-
-
 
   # Overloaded constructor - probably won't need it either
     #def __init__(self,fn,ln,em,pn,pi,ad,usn,psw,usID):

@@ -93,7 +93,7 @@ class menu:
                         print("Card information has been updated.")
                     elif editChoice == 5:
                         new_phone = input("\nEnter your updated Address: ")
-                        #do the update
+                        #do the update yea
                         c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
                         print("Address information has been updated.")
                     elif editChoice == 6:

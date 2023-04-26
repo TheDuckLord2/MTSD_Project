@@ -9,24 +9,25 @@ class cart:
 		self.itemID = None
 		self.cartTotal = 0
 		
-	def addItem(amt):
+	def addItem(id, amt):
 		#connect to database 
-		whichItem = input("Enter the item name: ")
+		whichItem = id
 		howMuch = amt;
-		newCartID = cart.new_cartID()
+		#newCartID = cart.new_cartID()
 		
-		currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
+		currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item ID = ?",(whichItem))
 		quantityDiff = currQuantity - howMuch
 		while howMuch > currQuantity:
 			howMuch = input("There are not that many items in stock. Try again. Quantity: ")
-			currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item Name = ?",(whichItem))
+			currQuantity = cursor.execute("SELECT Item Quantity FROM Inventory WHERE Item ID = ?",(whichItem))
 			quantityDiff = currQuantity - howMuch
 		cursor.execute("SELECT * FROM Inventory WHERE Item Name = ?",(whichItem))
 		for i in range(howMuch):
-			cursor.execute("INSERT INTO Cart SELECT * FROM Inventory WHERE Item Name = ? AND INSERT INTO Cart VALUES ?", (whichItem, newCartID))
+			cursor.execute("INSERT INTO Cart SELECT * FROM Inventory WHERE Item Name = ? AND INSERT INTO Cart VALUES ?", (whichItem))
 			cart.addTotal(whichItem)
 		#connect to database
 		cursor.excecute("UPDATE Inventory SET Item Quantity ? WHERE Item Name = ?",(quantityDiff,whichItem))
+
 	def checkout():
 		#display total -> function?
 		
@@ -47,7 +48,9 @@ class cart:
 		#header = ["Item ID","Item Name","Item Quantity","Item Price"]
 		# Needs to be done
 	
-	def new_cartID():cartID += 1
-	conn.commit()
-	conn.close()
+	def new_cartID():
+		cartID += 1
+
+	#conn.commit()
+	#conn.close()
 	

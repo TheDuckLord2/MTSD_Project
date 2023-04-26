@@ -1,5 +1,8 @@
 import sqlite3
 import hashlib
+import sys
+import os
+import subprocess
 
 
 conn = sqlite3.connect('MTSD_Database.db')
@@ -55,15 +58,18 @@ class user:
   def login():
       usern = input("Username: ")
       passw = input("Password: ")
-      checking = c.execute("SELECT Username, Password FROM Users WHERE Username = ?",(usern,))
+      checking = c.execute("SELECT Username, Password FROM Users WHERE Username = ? AND Password = ? AND EXISTS (SELECT Username, Password FROM Users WHERE Username = ? AND Password = ?)",(usern, passw, usern,passw))
       checking = c.fetchone()
-      print(checking)
-      if usern == checking[0] and passw == checking[1]:
+   #   print(checking)
+   #   print(checking[0], checking[1])
+      if checking == None:
+        print("\nWrong username or password.")
+      elif usern == checking[0] and passw == checking[1]:
         print("Login successful!")
       else:
-        print("Wrong username or password.")
-        exit()
-        #continue
+        print("\nWrong username or password.")
+        return False
+       # subprocess.call([sys.executable, os.path.realpath(__file__)] + sys.argv[1:])
         #maybe go back to original create account screen from there?
 
 

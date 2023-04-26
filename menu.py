@@ -1,12 +1,18 @@
+
 import sqlite3
 from user import user
 from cart import cart
 from tabulate import tabulate
+import sys
+import os
+import subprocess
+
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')
 
     c = conn.cursor()
+
 
     while True:
         print("\n\tPlease choose an option:")
@@ -25,6 +31,8 @@ class menu:
         if choice == 1:
             print("\n\tLog In selected.")
             user.login()
+
+                
 
             print("\n\tPlease choose an option")
             print("1. Edit Account Information")
@@ -92,15 +100,15 @@ class menu:
                     break
                     
             elif logInChoice == 2: 
-                print("\n\tShop selected")
+                print("\n\tShop selected\n")
                 
-               # items = print(c.fetchall())
-                headers = ["Item ID","Item Name","Item Quantity","Item Price"]
+            # items = print(c.fetchall())
+                headers = ["Item ID","Item Name","Item Quantity","Item Price ($)"]
                 c.execute("SELECT * FROM Inventory")
                 print(tabulate(c.fetchall(),headers=headers))
-                choice = input("Which item would you like to purchase?")
-                quantity = input("How many ",choice,"s would you like to purchase?")
-                cart.addItem(quantity)
+                choice = input("\nAdd to cart (enter item ID): ")
+                quantity = input("How many would you like to add to your cart? ")
+                cart.addItem(choice, quantity)
                 #show the inventory here
                 #do something to have the user be able to add to cart
                 #this should also remove one item quantity from the inventory

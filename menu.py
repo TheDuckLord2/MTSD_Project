@@ -29,9 +29,15 @@ class menu:
                 print("Invalid choice. Please enter a number between 1 and 3.")
                 
         if choice == 1:
+            os.system('cls')
             print("\n\tLog In selected.")
-            loggedIn = user.login()
-            if(loggedIn == 1):
+            usern = input("Username: ")
+            passw = input("Password: ")
+            loggedIn = user.login(usern, passw)
+            os.system('cls')
+            while(loggedIn == 1):
+                uID = c.execute("SELECT UserID FROM Users WHERE Username = ?",(usern,))
+                uID = c.fetchone()
                 print("\n\tPlease choose an option")
                 print("1. Edit Account Information")
                 print("2. Shop")
@@ -49,7 +55,6 @@ class menu:
 
                 if logInChoice == 1:
                     print("\n\tEdit Account Information selected")
-                    username = input("Enter your username for verification: ")
                     print("\n\tPlease choose an option")
                     a = True
                     while a == True:
@@ -73,32 +78,32 @@ class menu:
                         if editChoice == 1:
                             new_name = input("\nEnter your updated first name: ")
                         #do the update
-                            c.execute('''UPDATE Users SET First_Name = ? WHERE Username = ?''', (new_name, username))
+                            c.execute('''UPDATE Users SET First_Name = ? WHERE Username = ?''', (new_name, usern))
                             print("First name has been updated.")
                         elif editChoice == 2:
                             new_name = input("\nEnter your updated last name: ")
                             #do the update
-                            c.execute('''UPDATE Users SET Last_Name = ? WHERE Username = ?''', (new_name, username))
+                            c.execute('''UPDATE Users SET Last_Name = ? WHERE Username = ?''', (new_name, usern))
                             print("Last name has been updated.")
                         elif editChoice == 3:
                             new_phone = input("\nEnter your updated phone number: ")
                             #do the update
-                            c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, username))    
+                            c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, usern))    
                             print("Phone number has been updated.")
                         elif editChoice == 4:
                             new_phone = input("\nEnter your updated card information: ")
                             #do the update
-                            c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, username)) 
+                            c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, usern)) 
                             print("Card information has been updated.")
                         elif editChoice == 5:
                             new_phone = input("\nEnter your updated Address: ")
                             #do the update
-                            c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
+                            c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, usern))     
                             print("Address information has been updated.")
                         elif editChoice == 6:
                             print("\nGo Back selected")
                             a = False
-                            break
+                            pass
                         
                 elif logInChoice == 2: 
                     print("\n\tShop selected\n")
@@ -111,7 +116,8 @@ class menu:
                     if add == "y":
                         choice = input("\nAdd to cart (enter item ID): ")
                         quantity = input("How many would you like to add to your cart? ")
-                        cart.addItem(choice, quantity)
+                        cart.addItem(uID,choice, quantity)
+                    os.system('cls')
                 elif logInChoice == 3:
                     print("\n\tView Cart Information selected\n")
                     cart.displayCart()
@@ -143,25 +149,35 @@ class menu:
                         c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
                         print("Item/s removed.")
                         conn.commit()
+                        os.system('cls')
                     # REMOVE FUNCTION WORKS YES
                 elif logInChoice == 4:
                     print("\nView Order History selected\n")
                 elif logInChoice == 5:
                     print("\nLog Out Selected\n")
+                    os.system('cls')
                     loggedIn = 0
                     #do something that logs the user out, this should bring user back to the first set of options
+                os.system('cls')
         elif choice == 2:
+            os.system('cls')
             print("\n\tCreate account selected.")
             user.createAccount()
             print("Account created.")
+            os.system('cls')
+
     
     #this may not be correct
         
         
         elif choice == 3:
+            os.system('cls')
             print("\nQuit selected.")
+            conn.commit()
+            conn.close()
             #something should be done here to close the program??
             quit()
+        
             
     conn.commit()
     conn.close()

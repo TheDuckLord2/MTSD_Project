@@ -1,6 +1,9 @@
 import sqlite3
+from tabulate import tabulate
+
 conn = sqlite3.connect('MTSD_Database.db')
 cursor = conn.cursor()
+
 class cart:
 
 	def __init__(self):
@@ -63,13 +66,11 @@ class cart:
 	#	cartTotal += price
 		
 	def displayCart():
-		cursor.execute("SELECT * FROM Inventory")
-		#header = ["Item ID","Item Name","Item Quantity","Item Price"]
-		# Needs to be done
+		headers = ["Cart ID","Item ID","Item Name","Item Quantity","Item Price ($)"]
+		cursor.execute("SELECT * FROM Cart")
+		print(tabulate(cursor.fetchall(),headers=headers))
 	
 	def new_cartID():
 		cartID += 1
 
-	#conn.commit()
-	#conn.close()
 	

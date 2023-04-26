@@ -3,7 +3,7 @@ import sqlite3
 
 conn = sqlite3.connect('MTSD_Database.db')
 cursor = conn.cursor()
-#commit
+
 class OrderHistory:
     def __init__(self) -> None:
         orderID = None
@@ -22,3 +22,4 @@ class OrderHistory:
         return self.orderDate
     def getTotalPrice(self):
         return self.totalPrice
+

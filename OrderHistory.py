@@ -22,4 +22,3 @@ class OrderHistory:
         return self.orderDate
     def getTotalPrice(self):
         return self.totalPrice
-print("Sarahbeth is big brain")

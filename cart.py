@@ -14,7 +14,7 @@ class cart:
 		howMuch = int(amt)
 		#newCartID = cart.new_cartID()
 		
-		currQuantity = cursor.execute("SELECT Item_Quantity FROM Inventory WHERE ItemID = ?",(whichItem))
+		currQuantity = cursor.execute("SELECT Item_Quantity FROM Inventory WHERE ItemID = ?",(whichItem,))
 		currQuantity = cursor.fetchone()
 		currQuantity = ''.join(map(str,currQuantity))
 		currQuantity = int(currQuantity)

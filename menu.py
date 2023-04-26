@@ -50,51 +50,52 @@ class menu:
 
             if logInChoice == 1:
                 print("\n\tEdit Account Information selected")
-                while True:
-                    print("Please choose an option")
-                    print("1. Edit first name")
-                    print("2. Edit last name")
-                    print("3. Edit phone number")
-                    print("4. Edit card information")
-                    print("5. Edit address information")
-                    print("6. Go Back")
-                    #each option should bring the user back to Edit account information selection
-                    editChoice = input("Enter your choice (1-6): ")
-                    if editChoice.isdigit():
-                        editChoice = int(editChoice)
-                        if editChoice >=1 and editChoice <=6:
-                            pass
-                        else:
-                            print("Invalid choice. Please enter a number between 1 and 6.")
-                            continue
-                        
-                username = input("Enter your username")
-                
+                #while True:
+                print("Please choose an option")
+                print("1. Edit first name")
+                print("2. Edit last name")
+                print("3. Edit phone number")
+                print("4. Edit card information")
+                print("5. Edit address information")
+                print("6. Go Back")
+                #each option should bring the user back to Edit account information selection
+                editChoice = input("Enter your choice (1-6): ")
+                if editChoice.isdigit():
+                    editChoice = int(editChoice)
+                    if editChoice >=1 and editChoice <=6:
+                        pass
+                    else:
+                        print("Invalid choice. Please enter a number between 1 and 6.")
+                        continue
+                        # I think something is wrong here
+                    
+                username = input("Enter your username: ")
+            
                 if editChoice == 1:
                     new_name = input("Enter your updated first name: ")
-                    #do the update
-                    c.execute('''UPDATE Users SET firstName = ? WHERE Username = ?''', (new_name, username))
-                    print("First Name has been updated")
+                #do the update
+                    c.execute('''UPDATE Users SET First_Name = ? WHERE Username = ?''', (new_name, username))
+                    print("First name has been updated.")
                 elif editChoice == 2:
                     new_name = input("Enter your updated last name: ")
                     #do the update
-                    c.execute('''UPDATE Users SET lastName = ? WHERE Username = ?''', (new_name, username))
-                    print("Last Name has been updated")
+                    c.execute('''UPDATE Users SET Last_Name = ? WHERE Username = ?''', (new_name, username))
+                    print("Last name has been updated.")
                 elif editChoice == 3:
                     new_phone = input("Enter your updated phone number: ")
                     #do the update
-                    c.execute('''UPDATE Users SET Phone Number = ? WHERE Username = ?''', (new_name, username))    
-                    print("Phone number has been updated")
+                    c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, username))    
+                    print("Phone number has been updated.")
                 elif editChoice == 4:
                     new_phone = input("Enter your updated card information: ")
                     #do the update
-                    c.execute('''UPDATE Users SET Payment Info = ? WHERE Username = ?''', (new_name, username)) 
-                    print("Card Information has been updated")
+                    c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, username)) 
+                    print("Card information has been updated.")
                 elif editChoice == 5:
                     new_phone = input("Enter your updated Address: ")
                     #do the update
                     c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, username))     
-                    print("Address Information has been updated")
+                    print("Address information has been updated.")
                 elif editChoice == 6:
                     print("Go Back selected")
                     break

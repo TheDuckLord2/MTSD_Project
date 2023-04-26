@@ -23,12 +23,19 @@ class cart:
 		while howMuch > currQuantity:
 			howMuch = input("There are not that many items in stock. Try again. Quantity: ")
 			currQuantity = conn.execute("SELECT Item_Quantity FROM Inventory WHERE ItemID = ?",(whichItem,))
-			quantityDiff = currQuantity - howMuch
+			currQuantity = cursor.fetchone()
+		quantityDiff = currQuantity - howMuch
 		#conn.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem))
-		itemData = cursor.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem,))
-		itemData = cursor.fetchall()
-		conn.execute("INSERT INTO Cart VALUES (?, ?, ?, ?, ?)", (uID, itemData[0],itemData[1],itemData[2],itemData[3]))
-		conn.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(howMuch, whichItem,))
+		itemID = cursor.execute("SELECT ItemID FROM Inventory WHERE ItemID = ?",(whichItem,))
+		itemID = cursor.fetchone()
+		print(itemID)
+		itemName = cursor.execute("SELECT Item_Name FROM Inventory WHERE ItemID = ?",(whichItem,))
+		itemName = cursor.fetchone()
+		print(itemName)
+		itemPrice = cursor.execute("SELECT Item_Price FROM Inventory WHERE ItemID = ?",(whichItem,))
+		itemPrice = cursor.fetchone()
+		print(itemPrice)
+		conn.execute("INSERT INTO Cart (User_ID, ItemID, Item_Name, Item_Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)", (uID,itemID,itemName,howMuch,itemPrice))
 		conn.commit()
 		print("Item/s added to cart.")
 # HAHA IT WORKS

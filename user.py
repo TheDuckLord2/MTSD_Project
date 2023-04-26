@@ -4,7 +4,6 @@ import sys
 import os
 import subprocess
 
-num = 1
 conn = sqlite3.connect('MTSD_Database.db')
 c = conn.execute("SELECT * FROM Users ")
 c = conn.cursor()
@@ -51,14 +50,10 @@ class user:
         #  userID = userID + num
         #  setUserID(self,userID)
         conn.execute("INSERT INTO Users ([First_Name], [Last_Name], [Username], [Password], [Address], [Phone_Number], [Payment_Info]) VALUES (?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,username,password,address,phoneNumber,paymentInfo))
-        #newCartName = "Cart",user.
-        global num
-        num += 1
-        name = "Cart"+str(num)
-      #  userID = userID + 1
-        conn.execute("CREATE TABLE {}(Cart_ID INTEGER)".format(name))
         conn.commit()
+        #newCartName = "Cart",user.
 
+      #  userID = userID + 1
 
 # LOG IN FUNCTION
     def login():

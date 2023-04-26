@@ -3,6 +3,7 @@ import hashlib
 import sys
 import os
 import subprocess
+from tabulate import tabulate
 
 conn = sqlite3.connect('MTSD_Database.db')
 #c = conn.execute("SELECT * FROM Users ")
@@ -79,14 +80,17 @@ class user:
   # do not know what will be here
 
 
-    def viewProfile(self):
-        print("Name: " + self.firstName + " " + self.lastName)
-        print("User ID: " + self.userID)
-        print("Username: " + self.username)
-        print("Email: " + self.email)
-        print("Phone Number: " + self.phoneNumber)
-        print("Address: " + self.address)
-        print("Payment Information: "+ self.paymentInfo)
+    def viewProfile():
+       # print("Name: " + self.firstName + " " + self.lastName)
+       # print("User ID: " + self.userID)
+       # print("Username: " + self.username)
+       # print("Email: " + self.email)
+       # print("Phone Number: " + self.phoneNumber)
+       # print("Address: " + self.address)
+       # print("Payment Information: "+ self.paymentInfo)
+        headers = ["Name","User ID","Username","Email","Phone Number","Address","Payment Information"]
+        c.execute("SELECT * FROM Users")
+        print(tabulate(c.fetchall(),headers=headers))
     
     def setFirstName(self,x):
       self._firstName = x

@@ -43,14 +43,15 @@ class menu:
                 print("2. Shop")
                 print("3. View Cart Information")
                 print("4. View Order History")
-                print("5. Log out")
-                logInChoice = input("Enter your choice (1-5): ")
+                print("5. View profile")
+                print("6. Log out")
+                logInChoice = input("Enter your choice (1-6): ")
 
                 if logInChoice.isdigit():
                     logInChoice = int(logInChoice)
-                    if logInChoice >= 1 and logInChoice <= 5:
+                    if logInChoice >= 1 and logInChoice <= 6:
                         pass
-                    elif logInChoice < 1 or logInChoice > 5:
+                    elif logInChoice < 1 or logInChoice > 6:
                         print("Invalid choice. Please enter a number between 1 and 3.")
 
                 if logInChoice == 1:
@@ -154,6 +155,9 @@ class menu:
                 elif logInChoice == 4:
                     print("\nView Order History selected\n")
                 elif logInChoice == 5:
+                    print("\nView Profile Selected\n")
+                    viewProfile
+                elif logInChoice == 6:
                     print("\nLog Out Selected\n")
                     os.system('cls')
                     loggedIn = 0

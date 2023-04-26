@@ -29,6 +29,8 @@ class cart:
 		#conn.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem))
 		conn.execute("INSERT INTO Cart (ItemID,Item_Name,Item_Price,Item_Quantity) SELECT ItemID, Item_Name, Item_Price, ? FROM Inventory WHERE ItemID = ?", (howMuch, whichItem))
 		conn.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(howMuch, whichItem))
+		conn.commit()
+		print("Item/s added to cart.")
 # HAHA IT WORKS
 # BUT HOW DO WE KNOW WHICH CART IS FOR WHICH USER?????????
 	#	cart.addTotal(whichItem)

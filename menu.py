@@ -144,14 +144,13 @@ class menu:
                     #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
                     #  thisMany = c.fetchone()
                     newQuantity = thisMany - amttodelete
-                  #  c.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?", (newQuantity,itemtodelete))
                     c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
                     print("Item/s removed.")
                     conn.commit()
                 # REMOVE FUNCTION WORKS YES
 
             elif logInChoice == 4:
-                print("Log Out Selected")
+                print("\nLog Out Selected\n")
                 #do something that logs the user out, this should bring user back to the first set of options
                 break
         elif choice == 2:

@@ -42,15 +42,10 @@ class menu:
                 print("1. Edit Account Information")
                 print("2. Shop")
                 print("3. View Cart Information")
-<<<<<<< HEAD
-                print("4. Log out")
-                logInChoice = input("Enter your choice (1-4): ")
-=======
                 print("4. View Order History")
                 print("5. Log out")
                 logInChoice = input("Enter your choice (1-5): ")
 
->>>>>>> 60e6e97b60dbe2f3a75f3b98afe706efc373b633
                 if logInChoice.isdigit():
                     logInChoice = int(logInChoice)
                     if logInChoice >= 1 and logInChoice <= 5:
@@ -184,9 +179,6 @@ class menu:
             quit()
         
             
-<<<<<<< HEAD
-=======
     conn.commit()
     conn.close()
->>>>>>> 60e6e97b60dbe2f3a75f3b98afe706efc373b633
     

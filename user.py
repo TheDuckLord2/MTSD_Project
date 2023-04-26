@@ -56,9 +56,8 @@ class user:
       #  userID = userID + 1
 
 # LOG IN FUNCTION
-    def login():
-      usern = input("Username: ")
-      passw = input("Password: ")
+    def login(usern, passw):
+      
       checking = c.execute("SELECT Username, Password FROM Users WHERE Username = ? AND Password = ? AND EXISTS (SELECT Username, Password FROM Users WHERE Username = ? AND Password = ?)",(usern, passw, usern,passw))
       checking = c.fetchone()
    #   print(checking)
@@ -67,9 +66,10 @@ class user:
         print("\nWrong username or password.")
       elif usern == checking[0] and passw == checking[1]:
         print("Login successful!")
+        return 1
       else:
         print("\nWrong username or password.")
-        return False
+        return 0
        # subprocess.call([sys.executable, os.path.realpath(__file__)] + sys.argv[1:])
         #maybe go back to original create account screen from there?
 

@@ -5,7 +5,7 @@ import os
 import subprocess
 
 conn = sqlite3.connect('MTSD_Database.db')
-c = conn.execute("SELECT * FROM Users ")
+#c = conn.execute("SELECT * FROM Users ")
 c = conn.cursor()
 
 
@@ -49,7 +49,8 @@ class user:
         # num = cursor.execute("SELECT COUNT(*) FROM Users")
         #  userID = userID + num
         #  setUserID(self,userID)
-        conn.execute("INSERT INTO Users ([First_Name], [Last_Name], [Username], [Password], [Address], [Phone_Number], [Payment_Info]) VALUES (?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,username,password,address,phoneNumber,paymentInfo))
+
+        conn.execute("INSERT INTO Users (First_Name, Last_Name, Username, Password, Address, Phone_Number, Payment_Info) VALUES (?, ?, ?, ?, ?, ?, ?)",(firstName,lastName,username,password,address,phoneNumber,paymentInfo))
         conn.commit()
         #newCartName = "Cart",user.
 

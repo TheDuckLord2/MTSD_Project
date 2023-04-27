@@ -47,14 +47,15 @@ class cart:
 		#display total -> function?
 		cart.getTotal()
 		
-		whichCart = input("Enter your cartID to checkout: ")
+		whichCart = input("Enter your UserID to checkout: ")
 		
 		print("Order total: $" + cart.cartTotal)
 		#send order information to orderHistory DB
-		cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE Cart ID = ?", (whichCart,))
+		#cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE User ID = ?", (whichCart,))
+		cursor.execute("INSERT INTO Order History (User ID, Total Price, Total Quantity, Address) VALUES ('?', '?', '?', '?')",(whichcart,
 		
 		#remove all items from cart
-		cursor.execute("DELETE * FROM Cart WHERE Cart ID = ?",(whichCart,))
+		cursor.execute("DELETE * FROM Cart WHERE User ID = ?",(whichCart,))
 		# might not need the *
 
 

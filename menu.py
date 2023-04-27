@@ -131,11 +131,11 @@ class menu:
                             quantity = input("How many would you like to add to your cart? ")
                             cart.addItem(uID,choice, quantity)
                         os.system('cls')
-                            break
+                        break
                             
                     elif logInChoice == 3:
                         print("\n\tView Cart Information selected\n")
-                        cart.displayCart()
+                        cart.displayCart(uID)
                         print("\n\tPlease choose an option")
                         print("1. Remove from cart")
                         print("2. Checkout")
@@ -174,7 +174,7 @@ class menu:
                         
                     elif logInChoice == 5:
                         print("\nView Profile Selected\n")
-                        viewProfile
+                        user.viewProfile()
                         break
                         
                     elif logInChoice == 6:

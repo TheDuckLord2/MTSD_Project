@@ -89,42 +89,43 @@ class user:
         print("Phone Number: " + userData[6])
         print("Payment Info: " + userData[7])
     
-    def setFirstName(self,x):
-      self._firstName = x
-    def getFirstName(self):
-      return self._firstName
-    def setLastName(self,x):
-      self._lastName = x
-    def getLastName(self):
-      return self._lastName
-    def setEmail(self,x):
-      self._email = x
-    def getEmail(self):
-      return self._email
-    def setPhoneNumber(self,x):
-      self._phoneNumber = x
-    def getPhoneNumber(self):
-      return self._phoneNumber
-    def setAddress(self,x):
-      self._address = x
-    def getAddress(self):
-      return self._address
-    def setPaymentInfo(self,x):
-      self._paymentInfo = x
-    def getPaymentInfo(self):
-      return self._paymentInfo
-    def setUsername(self, x):
-      self._username = x
-    def getUsername(self):
-      return self._username
-    def setPassword(self,x):
-      self._password = x
-    def getPassword(self):
-      return self._password
-    def setUserID(self,x):
-      self._userID = x
-    def getUserID(self):
-      return self._userID
+    #def setFirstName(self,x):
+    #  self._firstName = x
+    #def getFirstName(self):
+    #  return self._firstName
+    #def setLastName(self,x):
+    #  self._lastName = x
+    #def getLastName(self):
+    #  return self._lastName
+    #def setEmail(self,x):
+    #  self._email = x
+    #def getEmail(self):
+    #  return self._email
+    #def setPhoneNumber(self,x):
+    #  self._phoneNumber = x
+    #def getPhoneNumber(self):
+    #  return self._phoneNumber
+    #def setAddress(self,x):
+    #  self._address = x
+    #def getAddress(self):
+    #  return self._address
+    #def setPaymentInfo(self,x):
+    #  self._paymentInfo = x
+    #def getPaymentInfo(self):
+    #  return self._paymentInfo
+    #def setUsername(self, x):
+    #  self._username = x
+    #def getUsername(self):
+    #  return self._username
+    #def setPassword(self,x):
+    #  self._password = x
+    #def getPassword(self):
+    #  return self._password
+    #def setUserID(self,x):
+    #  self._userID = x
+    #def getUserID(self):
+    #  return self._userID
+    #
 
 
 

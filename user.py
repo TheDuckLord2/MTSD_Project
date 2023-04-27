@@ -87,6 +87,7 @@ class user:
         print("Full Name: " + userData[0] + " " + userData[1])
         print("Address: " + userData[5])
         print("Phone Number: " + userData[6])
+        print("Payment Info: " + userData[7])
     
     def setFirstName(self,x):
       self._firstName = x

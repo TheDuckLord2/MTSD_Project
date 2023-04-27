@@ -13,6 +13,7 @@ class cart:
 	def addItem(uID, id, amt):
 		#connect to database 
 		whichItem = id
+		uID = int(''.join(map(str, uID)))
 		howMuch = int(amt)
 		#newCartID = cart.new_cartID()
 		currQuantity = cursor.execute("SELECT Item_Quantity FROM Inventory WHERE ItemID = ?",(whichItem,))
@@ -23,12 +24,15 @@ class cart:
 		while howMuch > currQuantity:
 			howMuch = input("There are not that many items in stock. Try again. Quantity: ")
 			currQuantity = conn.execute("SELECT Item_Quantity FROM Inventory WHERE ItemID = ?",(whichItem,))
-			quantityDiff = currQuantity - howMuch
+			currQuantity = cursor.fetchone()
+		quantityDiff = currQuantity - howMuch
 		#conn.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem))
-		itemData = cursor.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem,))
-		itemData = cursor.fetchall()
-		conn.execute("INSERT INTO Cart VALUES (?, ?, ?, ?, ?)", (uID, itemData[0],itemData[1],itemData[2],itemData[3]))
-		conn.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(howMuch, whichItem,))
+		itemData = cursor.execute("SELECT ItemID, Item_Name, Item_Price FROM Inventory WHERE ItemID = ?",(whichItem,))
+		itemData = cursor.fetchone()
+		print(itemData[0])
+		print(itemData[1])
+		print(itemData[2])
+		conn.execute("INSERT INTO Cart (User_ID, ItemID, Item_Name, Item_Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)", (uID,itemData[0],itemData[1],howMuch,itemData[2]))
 		conn.commit()
 		print("Item/s added to cart.")
 # HAHA IT WORKS
@@ -68,8 +72,9 @@ class cart:
 	#	cartTotal += price
 		
 	def displayCart(uID):
-		headers = ["Cart ID","Item ID","Item Name","Item Quantity","Item Price ($)"]
-		cursor.execute("SELECT * FROM Cart WHERE UserID = ?",(uID,))
+		uID = int(''.join(map(str, uID)))
+		headers = ["User ID","Item ID","Item Name","Item Quantity","Item Price ($)"]
+		cursor.execute("SELECT * FROM Cart WHERE User_ID = ?",(uID,))
 		print(tabulate(cursor.fetchall(),headers=headers))
 
 	

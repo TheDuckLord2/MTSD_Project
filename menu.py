@@ -168,6 +168,12 @@ class menu:
                             conn.commit()
                         # REMOVE FUNCTION WORKS YES
                             break
+                        elif cartChoice == 2:
+                            os.system('cls')
+                            cart.checkout()
+                            print("Checkout Selected")
+                            break
+                        
                             
                     elif logInChoice == 4:
                         print("\nView Order History selected\n")

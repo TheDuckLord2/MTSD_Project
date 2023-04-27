@@ -52,7 +52,7 @@ class cart:
 		print("Order total: $" + cart.cartTotal)
 		#send order information to orderHistory DB
 		cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE User ID = ?", (whichUser,))
-		#cursor.execute("INSERT INTO Order History (User ID, Total Price, Total Quantity, Address) VALUES ('?', '?', '?', '?')",(whichcart,
+		
 		
 		#remove all items from cart
 		cursor.execute("DELETE * FROM Cart WHERE User ID = ?",(whichUser,))

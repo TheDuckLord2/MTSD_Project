@@ -34,7 +34,6 @@ class menu:
             usern = input("Username: ")
             passw = input("Password: ")
             loggedIn = user.login(usern, passw)
-            os.system('cls')
             while(loggedIn == 1):
                 uID = c.execute("SELECT UserID FROM Users WHERE Username = ?",(usern,))
                 uID = c.fetchone()
@@ -161,10 +160,12 @@ class menu:
                             #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
                             #  thisMany = c.fetchone()
                             newQuantity = thisMany - amttodelete
-                            c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
+                            if newQuantity > 0:
+                                c.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(newQuantity, itemtodelete,))
+                            elif newQuantity <= 0:
+                                c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
                             print("Item/s removed.")
                             conn.commit()
-                            os.system('cls')
                         # REMOVE FUNCTION WORKS YES
                             break
                             
@@ -173,8 +174,9 @@ class menu:
                         break
                         
                     elif logInChoice == 5:
+                        os.system('cls')
                         print("\nView Profile Selected\n")
-                        user.viewProfile()
+                        user.viewProfile(uID)
                         break
                         
                     elif logInChoice == 6:
@@ -184,7 +186,6 @@ class menu:
                         break
                         
                     #do something that logs the user out, this should bring user back to the first set of options
-                os.system('cls')
         elif choice == 2:
             os.system('cls')
             print("\n\tCreate account selected.")

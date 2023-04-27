@@ -185,16 +185,13 @@ class menu:
                         loggedIn = 0
                         break
                         
-                    #do something that logs the user out, this should bring user back to the first set of options
+                   
         elif choice == 2:
             os.system('cls')
             print("\n\tCreate account selected.")
             user.createAccount()
             print("Account created.")
             os.system('cls')
-
-    
-    #this may not be correct
         
         
         elif choice == 3:
@@ -202,7 +199,6 @@ class menu:
             print("\nQuit selected.")
             conn.commit()
             conn.close()
-            #something should be done here to close the program??
             quit()
         
             

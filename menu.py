@@ -135,9 +135,18 @@ class menu:
                         if add == "y":
                             choice = input("\nAdd to cart (enter item ID): ")
                             quantity = input("How many would you like to add to your cart? ")
-                            cart.addItem(uID,choice, quantity)
-                        os.system('cls')
-                        break
+                            if quantity.isdigit():
+                                quantity = int(quantity)
+                                if quantity >= 1:
+                                    cart.addItem(uID,choice, quantity)
+                                    break
+                            elif choice < 1:
+                                print("Invalid choice. Please enter a number greater than 0.")
+                                break
+                            os.system('cls')
+                            #cart.addItem(uID,choice, quantity)
+                        #os.system('cls')
+                        #break
                             
                     elif logInChoice == 3:
                         os.system('cls')

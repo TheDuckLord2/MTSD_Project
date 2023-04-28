@@ -186,7 +186,7 @@ class menu:
                         os.system('cls')
                         print("\nView Order History selected\n")
                         headers = ["Order ID","User ID", "Total Price ($)","Address"]
-                        c.execute("SELECT * FROM Order_History")
+                        c.execute("SELECT * FROM Order_History WHERE [User ID] = ?",(uID))
                         print(tabulate(c.fetchall(),headers=headers))
                         break
                         

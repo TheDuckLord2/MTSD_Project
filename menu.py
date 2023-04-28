@@ -7,6 +7,7 @@ import os
 import getpass
 
 #rahhhhh
+#I think we done
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')

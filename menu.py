@@ -37,7 +37,6 @@ class menu:
                 uID = c.fetchone()
                 
                 while True:
-                    os.system('cls')
                     print("\n\tPlease choose an option")
                     print("1. Edit Account Information")
                     print("2. Shop")
@@ -55,6 +54,7 @@ class menu:
                             print("Invalid choice. Please enter a number between 1 and 3.")
 
                     if logInChoice == 1:
+                        os.system('cls')
                         print("\n\tEdit Account Information selected")
                         print("\n\tPlease choose an option")
                         
@@ -112,6 +112,7 @@ class menu:
                                 break
                                 
                             elif editChoice == 6:
+                                os.system('cls')
                                 print("\nGo Back selected")
                                 break
                                 
@@ -129,9 +130,11 @@ class menu:
                             choice = input("\nAdd to cart (enter item ID): ")
                             quantity = input("How many would you like to add to your cart? ")
                             cart.addItem(uID,choice, quantity)
+                        os.system('cls')
                         break
                             
                     elif logInChoice == 3:
+                        os.system('cls')
                         print("\n\tView Cart Information selected\n")
                         cart.displayCart(uID)
                         print("\n\tPlease choose an option")
@@ -169,6 +172,7 @@ class menu:
                             print("Item/s removed.")
                             conn.commit()
                         # REMOVE FUNCTION WORKS YES
+                            os.system('cls')
                             break
                         if cartChoice == 2:
                             print("\tCheckout Selected\n")
@@ -177,6 +181,7 @@ class menu:
                             print("Checkout Successful.")
                             
                     elif logInChoice == 4:
+                        os.system('cls')
                         print("\nView Order History selected\n")
                         headers = ["Order ID","User ID", "Total Price ($)","Address"]
                         c.execute("SELECT * FROM Order_History")

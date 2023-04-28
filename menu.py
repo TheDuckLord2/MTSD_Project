@@ -130,13 +130,13 @@ class menu:
                                 quantity = int(quantity)
                                 if quantity >= 1:
                                     cart.addItem(uID,choice, quantity)
-                                    pass
+                                    break
                             elif choice < 1:
                                 print("Invalid choice. Please enter a number greater than 0.")
-                                
+                                break
                             #cart.addItem(uID,choice, quantity)
                         #os.system('cls')
-                        break
+                        #break
                             
                     elif logInChoice == 3:
                         os.system('cls')

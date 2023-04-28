@@ -4,6 +4,7 @@ from user import user
 from cart import cart
 from tabulate import tabulate
 import os
+import getpass
 
 
 class menu:
@@ -30,7 +31,8 @@ class menu:
             os.system('cls')
             print("\n\tLog In selected.")
             usern = input("Username: ")
-            passw = input("Password: ")
+            passw = getpass.getpass("Password: ")
+           # passw = input("Password: ")
             loggedIn = user.login(usern, passw)
             while(loggedIn == 1):
                 uID = c.execute("SELECT UserID FROM Users WHERE Username = ?",(usern,))
@@ -160,7 +162,7 @@ class menu:
                             #while thisMany > amttodelete:
                         #   amttodelete = input("There are not that many items in stock. Try again. Enter the number of items you want to remove: ")
                             #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
-                            #  thisMany = c.fetchone()
+                            #  thisMansy = c.fetchone()
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
                                 c.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(newQuantity, itemtodelete,))

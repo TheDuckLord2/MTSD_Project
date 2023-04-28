@@ -74,7 +74,20 @@ class user:
        # subprocess.call([sys.executable, os.path.realpath(__file__)] + sys.argv[1:])
         #maybe go back to original create account screen from there?
 
-
+    def deleteProfile(uID):
+        uID = int(''.join(map(str,uID)))
+        conf = input("Are you sure you want to delete your account?(y,n)")
+        if conf == 'y':
+          conf = input("Are you sure you're sure you want to delete your account?(y,n)")
+          if conf == 'y':
+            conf = input("Are you sure you're sure you're sure you want to delete your account?(y,n)")
+            if conf == 'y':
+              conf = input("like, 100%, sure??(y,n)")
+              if conf == 'y':
+                print("Truly a travesty, but nonetheless, enjoy the rest of your day. Goodbye. :'^(")
+                c.execute("DELETE FROM Users where UserID = ?",(uID,))
+                return
+        print("Oh, thank goodness. I got worried there.")
   #def logout():
   # do not know what will be here
 

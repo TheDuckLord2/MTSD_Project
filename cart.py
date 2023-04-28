@@ -29,10 +29,7 @@ class cart:
 		#conn.execute("SELECT * FROM Inventory WHERE ItemID = ?",(whichItem))
 		itemData = cursor.execute("SELECT ItemID, Item_Name, Item_Price FROM Inventory WHERE ItemID = ?",(whichItem,))
 		itemData = cursor.fetchone()
-		print(itemData[0])
-		print(itemData[1])
-		print(itemData[2])
-		conn.execute("INSERT INTO Cart (User_ID, ItemID, Item_Name, Item_Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)", (uID,itemData[0],itemData[1],howMuch,itemData[2]))
+		conn.execute("INSERT INTO Cart (User_ID, ItemID, Item_Name, Item_Quantity, Item_Price) VALUES (?, ?, ?, ?, ?)", (uID,itemData[0],itemData[1],howMuch,itemData[2]*howMuch))
 		conn.commit()
 		print("Item/s added to cart.")
 # HAHA IT WORKS

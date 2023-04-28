@@ -6,7 +6,7 @@ from secretagain import gametime
 import random
 import os
 
-#rahhhhh
+
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')

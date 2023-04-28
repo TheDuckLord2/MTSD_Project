@@ -3,9 +3,7 @@ import sqlite3
 from user import user
 from cart import cart
 from tabulate import tabulate
-import sys
 import os
-import subprocess
 
 
 class menu:
@@ -177,6 +175,9 @@ class menu:
                             
                     elif logInChoice == 4:
                         print("\nView Order History selected\n")
+                        headers = ["Order ID","User ID", "Total Price ($)","Address"]
+                        c.execute("SELECT * FROM Order_History")
+                        print(tabulate(c.fetchall(),headers=headers))
                         break
                         
                     elif logInChoice == 5:

@@ -43,19 +43,21 @@ class cart:
 		conn.execute("UPDATE Inventory SET Item_Quantity = ? WHERE ItemID = ?",(quantityDiff,whichItem,))
 		conn.commit()
 
-	def checkout():
+	def checkout(uID):
 		#display total -> function?
-		cart.getTotal()
-		
-		whichUser = input("Enter your UserID to checkout: ")
-		
-		print("Order total: $" + cart.cartTotal)
+		uID = int(''.join(map(str,uID)))
+		total = cart.getTotal(uID)
+		addr = cursor.execute("SELECT Address FROM Users WHERE UserID = ?",(uID,))
+		addr = cursor.fetchone()
+		addr = ''.join(map(str,addr))
+		print("Order total: $" + str(total))
+		conn.execute("INSERT INTO Order_History ([User ID],[Total PRIce],[Address]) VALUES (?,?,?)",(uID,total,addr))
 		#send order information to orderHistory DB
-		cursor.execute("INSERT INTO Order History SELECT * FROM Cart WHERE User ID = ?", (whichUser,))
-		
-		
+		#cursor.execute("INSERT INTO Order_History SELECT * FROM Cart WHERE User ID = ?", (uID,))
+		#cursor.execute("INSERT INTO Order History (User ID, Total Price, Total Quantity, Address) VALUES ('?', '?', '?', '?')",(whichcart,
 		#remove all items from cart
-		cursor.execute("DELETE * FROM Cart WHERE User ID = ?",(whichUser,))
+		cursor.execute("DELETE FROM Cart WHERE [User_ID] = ?",(uID,))
+		conn.commit()
 		# might not need the *
 
 
@@ -63,6 +65,7 @@ class cart:
 	def getTotal(uID):
 		priceTotal = cursor.execute("SELECT SUM(Item_Price) FROM Cart WHERE User_ID = ?",(uID,))
 		priceTotal = cursor.fetchone()
+		priceTotal = float(''.join(map(str,priceTotal)))
 		return priceTotal
 	
 	# This was causing me some issues so I commented it out sorry

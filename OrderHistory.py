@@ -1,5 +1,6 @@
 import cart
 import sqlite3
+from tabulate import tabulate
 
 conn = sqlite3.connect('MTSD_Database.db')
 cursor = conn.cursor()
@@ -14,12 +15,9 @@ class OrderHistory:
         self.userID = uID
         self.orderDate = oD
         self.totalPrice = tP
-    def getOrderID(self):
-        return self.orderID
-    def getUserID(self):
-        return self.userID
-    def getOrderDate(self):
-        return self.orderDate
-    def getTotalPrice(self):
-        return self.totalPrice
-    def displayOrderHistory(orderID):
+    
+    def displayHistory(uID):
+        uID = int(''.join(map(str, uID)))
+        headers = ["Order ID","User ID","Total Price","Address"]
+        cursor.execute("SELECT * FROM Order_History WHERE User_ID = ?",(uID,))
+        print(tabulate(cursor.fetchall(),headers=headers))

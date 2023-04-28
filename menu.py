@@ -54,6 +54,7 @@ class menu:
                             print("Invalid choice. Please enter a number between 1 and 3.")
 
                     if logInChoice == 1:
+                        os.system('cls')
                         print("\n\tEdit Account Information selected")
                         print("\n\tPlease choose an option")
                         
@@ -111,11 +112,13 @@ class menu:
                                 break
                                 
                             elif editChoice == 6:
+                                os.system('cls')
                                 print("\nGo Back selected")
                                 break
                                 
 
                     elif logInChoice == 2: 
+                        os.system('cls')
                         print("\n\tShop selected\n")
 
                     # items = print(c.fetchall())
@@ -131,6 +134,7 @@ class menu:
                         break
                             
                     elif logInChoice == 3:
+                        os.system('cls')
                         print("\n\tView Cart Information selected\n")
                         cart.displayCart(uID)
                         print("\n\tPlease choose an option")
@@ -166,8 +170,10 @@ class menu:
                             conn.commit()
                         # REMOVE FUNCTION WORKS YES
                             break
+                        os.system('cls')
                             
                     elif logInChoice == 4:
+                        os.system('cls')
                         print("\nView Order History selected\n")
                         headers = ["Order ID","User ID", "Total Price ($)","Address"]
                         c.execute("SELECT * FROM Order_History")

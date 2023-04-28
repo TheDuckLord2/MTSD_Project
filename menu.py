@@ -154,13 +154,16 @@ class menu:
                             thisMany = c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?",(itemtodelete,))
                             thisMany = c.fetchone()     
                             thisMany = int(''.join(map(str,thisMany)))
+                            pricey = c.execute("SELECT Item_Price FROM Inventory WHERE ItemID = ?",(itemtodelete,))
+                            pricey = c.fetchone()
+                            pricey = float(''.join(map(str,pricey)))
                             #while thisMany > amttodelete:
                         #   amttodelete = input("There are not that many items in stock. Try again. Enter the number of items you want to remove: ")
                             #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
                             #  thisMany = c.fetchone()
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
-                                c.execute("UPDATE Cart SET Item_Quantity = ? WHERE ItemID = ?",(newQuantity, itemtodelete,))
+                                c.execute("UPDATE Cart SET Item_Quantity = ?, Item_Price = ? WHERE ItemID = ?",(newQuantity,pricey*newQuantity, itemtodelete,))
                             elif newQuantity <= 0:
                                 c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
                             print("Item/s removed.")
@@ -171,7 +174,7 @@ class menu:
                             print("\tCheckout Selected\n")
                             paymentInfo = input("Please enter your payment info: ")
                             cart.checkout(uID)
-                            print("Checkout Successful?")
+                            print("Checkout Successful.")
                             
                     elif logInChoice == 4:
                         print("\nView Order History selected\n")

@@ -80,12 +80,14 @@ class user:
         if conf == 'y':
           conf = input("Are you sure you're sure you want to delete your account?(y,n)")
           if conf == 'y':
-            conf = input("Are you sure you're sure you want to delete your account?(y,n)")
+            conf = input("Are you sure you're sure you're sure you want to delete your account?(y,n)")
             if conf == 'y':
               conf = input("like, 100%, sure??(y,n)")
               if conf == 'y':
-                print("Okay! Enjoy the rest of your day. Goodbye.")
-                c.execute("DELETE FROM Users where UserID = ?",(uID))
+                print("Truly a travesty, but nonetheless, enjoy the rest of your day. Goodbye. :'^(")
+                c.execute("DELETE FROM Users where UserID = ?",(uID,))
+                return
+        print("Oh, thank goodness. I got worried there.")
   #def logout():
   # do not know what will be here
 

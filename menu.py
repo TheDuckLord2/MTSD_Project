@@ -201,6 +201,7 @@ class menu:
                         os.system('cls')
                         print("Delete Account Selected")
                         user.deleteProfile(uID)
+                        loggedIn = 0
                         break
                         
                     elif logInChoice == 7:

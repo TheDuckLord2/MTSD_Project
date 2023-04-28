@@ -172,10 +172,7 @@ class menu:
                             pricey = c.execute("SELECT Item_Price FROM Inventory WHERE ItemID = ?",(itemtodelete,))
                             pricey = c.fetchone()
                             pricey = float(''.join(map(str,pricey)))
-                            #while thisMany > amttodelete:
-                        #   amttodelete = input("There are not that many items in stock. Try again. Enter the number of items you want to remove: ")
-                            #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
-                            #  thisMansy = c.fetchone()
+                            
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
                                 c.execute("UPDATE Cart SET Item_Quantity = ?, Item_Price = ? WHERE ItemID = ?",(newQuantity,pricey*newQuantity, itemtodelete,))

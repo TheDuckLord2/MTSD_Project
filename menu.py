@@ -6,8 +6,9 @@ from tabulate import tabulate
 from secretagain import gametime
 import random
 import os
-import getpass
+import getpass_ak
 
+#rahhhhh
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')
@@ -33,7 +34,7 @@ class menu:
             os.system('cls')
             print("\n\tLog In selected.")
             usern = input("Username: ")
-            passw = getpass.getpass("Password: ")
+            passw = getpass_ak.getpass("Password: ")
            # passw = input("Password: ")
             loggedIn = user.login(usern, passw)
             while(loggedIn == 1):
@@ -70,6 +71,7 @@ class menu:
                             print("4. Edit card information")
                             print("5. Edit address information")
                             print("6. Go Back")
+                            #each option should bring the user back to Edit account information selection
                             editChoice = input("Enter your choice (1-6): ")
                             if editChoice.isdigit():
                                 editChoice = int(editChoice)
@@ -78,33 +80,39 @@ class menu:
                                 else:
                                     print("Invalid choice. Please enter a number between 1 and 6.")
                                     continue
+                                    # I think something is wrong here
 
                             if editChoice == 1:
                                 new_name = input("\nEnter your updated first name: ")
+                            #do the update
                                 c.execute('''UPDATE Users SET First_Name = ? WHERE Username = ?''', (new_name, usern))
                                 print("First name has been updated.")
                                 break
                                 
                             elif editChoice == 2:
                                 new_name = input("\nEnter your updated last name: ")
+                                #do the update
                                 c.execute('''UPDATE Users SET Last_Name = ? WHERE Username = ?''', (new_name, usern))
                                 print("Last name has been updated.")
                                 break
                                 
                             elif editChoice == 3:
                                 new_phone = input("\nEnter your updated phone number: ")
+                                #do the update
                                 c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, usern))    
                                 print("Phone number has been updated.")
                                 break
                                 
                             elif editChoice == 4:
                                 new_phone = input("\nEnter your updated card information: ")
+                                #do the update
                                 c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, usern)) 
                                 print("Card information has been updated.")
                                 break
                                 
                             elif editChoice == 5:
                                 new_phone = input("\nEnter your updated Address: ")
+                                #do the update
                                 c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, usern))     
                                 print("Address information has been updated.")
                                 break
@@ -119,6 +127,7 @@ class menu:
                         os.system('cls')
                         print("\n\tShop selected\n")
 
+                    # items = print(c.fetchall())
                         headers = ["Item ID","Item Name","Item Quantity","Item Price ($)"]
                         c.execute("SELECT * FROM Inventory")
                         print(tabulate(c.fetchall(),headers=headers))
@@ -157,6 +166,10 @@ class menu:
                             pricey = c.execute("SELECT Item_Price FROM Inventory WHERE ItemID = ?",(itemtodelete,))
                             pricey = c.fetchone()
                             pricey = float(''.join(map(str,pricey)))
+                            #while thisMany > amttodelete:
+                        #   amttodelete = input("There are not that many items in stock. Try again. Enter the number of items you want to remove: ")
+                            #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
+                            #  thisMansy = c.fetchone()
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
                                 c.execute("UPDATE Cart SET Item_Quantity = ?, Item_Price = ? WHERE ItemID = ?",(newQuantity,pricey*newQuantity, itemtodelete,))
@@ -164,6 +177,7 @@ class menu:
                                 c.execute("DELETE FROM Cart WHERE ItemID = ?",(itemtodelete,))
                             print("Item/s removed.")
                             conn.commit()
+                        # REMOVE FUNCTION WORKS YES
                             os.system('cls')
                             break
                         if cartChoice == 2:

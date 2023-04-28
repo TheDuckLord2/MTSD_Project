@@ -1,4 +1,3 @@
-
 import sqlite3
 from user import user
 from cart import cart

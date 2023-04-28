@@ -179,6 +179,7 @@ class menu:
                             paymentInfo = input("Please enter your payment info: ")
                             cart.checkout(uID)
                             print("Checkout Successful.")
+                            break
                             
                     elif logInChoice == 4:
                         os.system('cls')

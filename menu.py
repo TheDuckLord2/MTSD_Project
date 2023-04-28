@@ -43,15 +43,16 @@ class menu:
                     print("3. View Cart Information")
                     print("4. View Order History")
                     print("5. View profile")
-                    print("6. Log out")
-                    logInChoice = input("Enter your choice (1-6): ")
+                    print("6. Delete Account")
+                    print("7. Log out")
+                    logInChoice = input("Enter your choice (1-7): ")
 
                     if logInChoice.isdigit():
                         logInChoice = int(logInChoice)
-                        if logInChoice >= 1 and logInChoice <= 6:
+                        if logInChoice >= 1 and logInChoice <= 7:
                             pass
-                        elif logInChoice < 1 or logInChoice > 6:
-                            print("Invalid choice. Please enter a number between 1 and 3.")
+                        elif logInChoice < 1 or logInChoice > 7:
+                            print("Invalid choice. Please enter a number between 1 and 7.")
 
                     if logInChoice == 1:
                         os.system('cls')
@@ -197,6 +198,12 @@ class menu:
                         break
                         
                     elif logInChoice == 6:
+                        os.system('cls')
+                        print("Delete Account Selected")
+                        user.deleteProfile(uID)
+                        break
+                        
+                    elif logInChoice == 7:
                         print("\nLog Out Selected\n")
                         os.system('cls')
                         loggedIn = 0

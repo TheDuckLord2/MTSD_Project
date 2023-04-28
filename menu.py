@@ -3,6 +3,8 @@ import sqlite3
 from user import user
 from cart import cart
 from tabulate import tabulate
+from secretagain import gametime
+import random
 import os
 import getpass
 
@@ -45,8 +47,9 @@ class menu:
                     print("3. View Cart Information")
                     print("4. View Order History")
                     print("5. View profile")
-                    print("6. Log out")
-                    logInChoice = input("Enter your choice (1-6): ")
+                    print("6. Delete Profile")
+                    print("7. Log Out")
+                    logInChoice = input("Enter your choice (1-7): ")
 
                     if logInChoice.isdigit():
                         logInChoice = int(logInChoice)
@@ -210,6 +213,11 @@ class menu:
                         os.system('cls')
                         loggedIn = 0
                         break
+                    elif logInChoice == 202020:
+                        os.system('cls')
+                        print("You found it! congrass")
+                        gametime.rock_paper_scissors()
+                    
                         
                    
         elif choice == 2:

@@ -37,6 +37,7 @@ class menu:
                 uID = c.fetchone()
                 
                 while True:
+                    os.system('cls')
                     print("\n\tPlease choose an option")
                     print("1. Edit Account Information")
                     print("2. Shop")

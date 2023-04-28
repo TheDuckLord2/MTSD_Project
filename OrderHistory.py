@@ -15,9 +15,4 @@ class OrderHistory:
         self.userID = uID
         self.orderDate = oD
         self.totalPrice = tP
-    
-    def displayHistory(uID):
-        uID = int(''.join(map(str, uID)))
-        headers = ["Order ID","User ID","Total Price","Address"]
-        cursor.execute("SELECT * FROM Order_History WHERE User_ID = ?",(uID,))
-        print(tabulate(cursor.fetchall(),headers=headers))
+

@@ -6,7 +6,6 @@ from tabulate import tabulate
 from secretagain import gametime
 import random
 import os
-import getpass_ak
 
 #rahhhhh
 
@@ -34,7 +33,7 @@ class menu:
             os.system('cls')
             print("\n\tLog In selected.")
             usern = input("Username: ")
-            passw = getpass_ak.getpass("Password: ")
+            passw = input("Password: ")
            # passw = input("Password: ")
             loggedIn = user.login(usern, passw)
             while(loggedIn == 1):

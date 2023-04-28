@@ -169,6 +169,7 @@ class menu:
                             print("Item/s removed.")
                             conn.commit()
                         # REMOVE FUNCTION WORKS YES
+                            os.system('cls')
                             break
                         os.system('cls')
                             
@@ -176,7 +177,7 @@ class menu:
                         os.system('cls')
                         print("\nView Order History selected\n")
                         headers = ["Order ID","User ID", "Total Price ($)","Address"]
-                        c.execute("SELECT * FROM Order_History WHERE [User ID] = ?",(uID))
+                        c.execute("SELECT * FROM Order_History")
                         print(tabulate(c.fetchall(),headers=headers))
                         break
                         

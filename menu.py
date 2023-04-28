@@ -7,7 +7,6 @@ import random
 import os
 import getpass_ak
 
-#rahhhhh
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')

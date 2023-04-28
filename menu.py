@@ -6,7 +6,11 @@ from secretagain import gametime
 import random
 import os
 
-
+#Program is a shopping system that connects to an SQL database
+#Uses Sqlite3 and python as the basis
+#Made as a project for class
+#Written by Hunter Pope, Rian Marcus, Sarah Usey,
+#
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')

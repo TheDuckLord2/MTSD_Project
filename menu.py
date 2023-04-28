@@ -129,12 +129,13 @@ class menu:
                             if quantity.isdigit():
                                 quantity = int(quantity)
                                 if quantity >= 1:
+                                    cart.addItem(uID,choice, quantity)
                                     pass
                             elif choice < 1:
                                 print("Invalid choice. Please enter a number greater than 0.")
                                 
-                            cart.addItem(uID,choice, quantity)
-                        os.system('cls')
+                            #cart.addItem(uID,choice, quantity)
+                        #os.system('cls')
                         break
                             
                     elif logInChoice == 3:

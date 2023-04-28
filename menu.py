@@ -166,12 +166,6 @@ class menu:
                             conn.commit()
                         # REMOVE FUNCTION WORKS YES
                             break
-                        elif cartChoice == 2:
-                            os.system('cls')
-                            cart.checkout()
-                            print("Checkout Selected")
-                            break
-                        
                             
                     elif logInChoice == 4:
                         print("\nView Order History selected\n")
@@ -192,16 +186,13 @@ class menu:
                         loggedIn = 0
                         break
                         
-                    
+                   
         elif choice == 2:
             os.system('cls')
             print("\n\tCreate account selected.")
             user.createAccount()
             print("Account created.")
             os.system('cls')
-
-    
-    
         
         
         elif choice == 3:

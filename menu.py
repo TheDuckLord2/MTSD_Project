@@ -3,8 +3,12 @@ import sqlite3
 from user import user
 from cart import cart
 from tabulate import tabulate
+from secretagain import gametime
+import random
 import os
+import getpass
 
+#rahhhhh
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')
@@ -30,7 +34,8 @@ class menu:
             os.system('cls')
             print("\n\tLog In selected.")
             usern = input("Username: ")
-            passw = input("Password: ")
+            passw = getpass.getpass("Password: ")
+           # passw = input("Password: ")
             loggedIn = user.login(usern, passw)
             while(loggedIn == 1):
                 uID = c.execute("SELECT UserID FROM Users WHERE Username = ?",(usern,))
@@ -43,8 +48,9 @@ class menu:
                     print("3. View Cart Information")
                     print("4. View Order History")
                     print("5. View profile")
-                    print("6. Log out")
-                    logInChoice = input("Enter your choice (1-6): ")
+                    print("6. Delete Profile")
+                    print("7. Log Out")
+                    logInChoice = input("Enter your choice (1-7): ")
 
                     if logInChoice.isdigit():
                         logInChoice = int(logInChoice)
@@ -163,7 +169,7 @@ class menu:
                             #while thisMany > amttodelete:
                         #   amttodelete = input("There are not that many items in stock. Try again. Enter the number of items you want to remove: ")
                             #  c.execute("SELECT Item_Quantity FROM Cart WHERE ItemID = ?"(itemtodelete,))
-                            #  thisMany = c.fetchone()
+                            #  thisMansy = c.fetchone()
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
                                 c.execute("UPDATE Cart SET Item_Quantity = ?, Item_Price = ? WHERE ItemID = ?",(newQuantity,pricey*newQuantity, itemtodelete,))
@@ -197,10 +203,22 @@ class menu:
                         break
                         
                     elif logInChoice == 6:
+                        os.system('cls')
+                        print("Delete Account Selected")
+                        user.deleteProfile(uID)
+                        loggedIn = 0
+                        break
+                        
+                    elif logInChoice == 7:
                         print("\nLog Out Selected\n")
                         os.system('cls')
                         loggedIn = 0
                         break
+                    elif logInChoice == 202020:
+                        os.system('cls')
+                        print("You found it! congrass")
+                        gametime.rock_paper_scissors()
+                    
                         
                    
         elif choice == 2:

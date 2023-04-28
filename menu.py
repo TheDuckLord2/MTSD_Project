@@ -134,6 +134,7 @@ class menu:
                             elif choice < 1:
                                 print("Invalid choice. Please enter a number greater than 0.")
                                 break
+                            os.system('cls')
                             #cart.addItem(uID,choice, quantity)
                         #os.system('cls')
                         #break

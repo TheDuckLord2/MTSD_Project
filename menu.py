@@ -83,30 +83,35 @@ class menu:
                             if editChoice == 1:
                                 new_name = input("\nEnter your updated first name: ")
                                 c.execute('''UPDATE Users SET First_Name = ? WHERE Username = ?''', (new_name, usern))
+                                conn.commit()
                                 print("First name has been updated.")
                                 break
                                 
                             elif editChoice == 2:
                                 new_name = input("\nEnter your updated last name: ")
                                 c.execute('''UPDATE Users SET Last_Name = ? WHERE Username = ?''', (new_name, usern))
+                                conn.commit()
                                 print("Last name has been updated.")
                                 break
                                 
                             elif editChoice == 3:
                                 new_phone = input("\nEnter your updated phone number: ")
-                                c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, usern))    
+                                c.execute('''UPDATE Users SET Phone_Number = ? WHERE Username = ?''', (new_name, usern))
+                                conn.commit()  
                                 print("Phone number has been updated.")
                                 break
                                 
                             elif editChoice == 4:
                                 new_phone = input("\nEnter your updated card information: ")
-                                c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, usern)) 
+                                c.execute('''UPDATE Users SET Payment_Info = ? WHERE Username = ?''', (new_name, usern))
+                                conn.commit() 
                                 print("Card information has been updated.")
                                 break
                                 
                             elif editChoice == 5:
                                 new_phone = input("\nEnter your updated Address: ")
-                                c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, usern))     
+                                c.execute('''UPDATE Users SET Address = ? WHERE Username = ?''', (new_name, usern))
+                                conn.commit()    
                                 print("Address information has been updated.")
                                 break
                                 

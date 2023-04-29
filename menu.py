@@ -6,13 +6,11 @@ from secretagain import gametime
 import random
 import os
 
-<<<<<<< HEAD
-=======
 #Program is a shopping system that connects to an SQL database
 #Uses Sqlite3 and python as the basis
 #Made as a project for class
 #Written by Hunter Pope, Rian Marcus, Sarah Usey, and Samuel Karahalis
->>>>>>> bf24d9823b51983df5211f66b3acc7e89361f9d3
+
 
 class menu:
     conn = sqlite3.connect('MTSD_Database.db')
@@ -38,7 +36,6 @@ class menu:
             print("\n\tLog In selected.")
             usern = input("Username: ")
             passw = input("Password: ")
-           # passw = input("Password: ")
             loggedIn = user.login(usern, passw)
             while(loggedIn == 1):
                 uID = c.execute("SELECT UserID FROM Users WHERE Username = ?",(usern,))
@@ -123,7 +120,7 @@ class menu:
                         os.system('cls')
                         print("\n\tShop selected\n")
 
-                    # items = print(c.fetchall())
+
                         headers = ["Item ID","Item Name","Item Quantity","Item Price ($)"]
                         c.execute("SELECT * FROM Inventory")
                         print(tabulate(c.fetchall(),headers=headers))
@@ -171,10 +168,7 @@ class menu:
                             pricey = c.execute("SELECT Item_Price FROM Inventory WHERE ItemID = ?",(itemtodelete,))
                             pricey = c.fetchone()
                             pricey = float(''.join(map(str,pricey)))
-<<<<<<< HEAD
-=======
-                            
->>>>>>> bf24d9823b51983df5211f66b3acc7e89361f9d3
+
                             newQuantity = thisMany - amttodelete
                             if newQuantity > 0:
                                 c.execute("UPDATE Cart SET Item_Quantity = ?, Item_Price = ? WHERE ItemID = ?",(newQuantity,pricey*newQuantity, itemtodelete,))

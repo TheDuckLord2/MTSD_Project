@@ -5,11 +5,6 @@ conn = sqlite3.connect('MTSD_Database.db')
 cursor = conn.cursor()
 
 class cart:
-
-	def __init__(self):
-		self.itemID = None
-		self.cartTotal = 0
-		
 	def addItem(uID, id, amt):
 		whichItem = id
 		uID = int(''.join(map(str, uID)))

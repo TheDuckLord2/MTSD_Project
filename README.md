@@ -1,3 +1,2 @@
 # MTSD_Project
-It's that one project (You know the one)
-this jawn is a potion shop ya dig
+It's that one project where we made the potion shop from the command line
